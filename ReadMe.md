@@ -1,8 +1,7 @@
 # Extension_for_SCLP
 
-
 Extending SCLP to support more language features Research Project
-Done under the Guidance of Dr. Uday Khedker, Professor of Computer Science Department, IIT Bombay 
+Done under the guidance of Prof. Uday Khedker, IIT Bombay 
 Tech Stack: C++, flex, bison, g++, make, glr parser
 
 ● SCLP is a Language Processor developed in an incremental fashion by Dr Uday Khedker in order to help UG students understand the compilation process in a better way. Development of the project started with designing a compiler for declarative statements and then enhancing it using well-defined increments
