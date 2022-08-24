@@ -1,4 +1,0 @@
-void main() {
-   float d;
-
-}
