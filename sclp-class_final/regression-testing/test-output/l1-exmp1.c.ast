@@ -1,0 +1,20 @@
+Program:
+**PROCEDURE: main, Return Type: <void>**BEGIN: Abstract Syntax Tree 
+         Asgn:
+           LHS (Name : local_<int>)
+           RHS (Num : 2<int>)
+         Asgn:
+           LHS (Name : global_<int>)
+           RHS (Num : 1<int>)
+         Read: Name : temp_<int>
+         Asgn:
+           LHS (Name : temp_<int>)
+           RHS (Name : local_<int>)
+         Asgn:
+           LHS (Name : a_<string>)
+           RHS (String : "Welcome to CS316"<string>)
+         Write: Name : local_<int>
+         Write: Name : global_<int>
+         Write: Name : a_<string>
+         Write: Name : temp_<int>
+**END: Abstract Syntax Tree 

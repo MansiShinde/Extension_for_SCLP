@@ -1,0 +1,13 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+           LHS (Name : a_<int>)
+           RHS (Num : 5<int>)
+         Asgn:
+           LHS (
+             Field_Access: <string>
+               Base (Name : x_<class - A_>)
+               Offset (Name : abc_<string>))
+           RHS (String : "Hello World"<string>)
+**END: Abstract Syntax Tree 

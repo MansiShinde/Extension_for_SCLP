@@ -1,0 +1,68 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 5    	;; Loading integer number 5
+	store:    	a_ <- v0    
+	iLoad:    	v0 <- 3    	;; Loading integer number 3
+	store:    	b_ <- v0    
+	iLoad:    	v0 <- 7    	;; Loading 7 in v0 to indicate syscall to read double value
+	read				;; This is where syscall will be made
+	store.d:    	c_ <- f0    	;; Moving the read value from register f0
+	iLoad:    	v0 <- 7    	;; Loading 7 in v0 to indicate syscall to read double value
+	read				;; This is where syscall will be made
+	store.d:    	d_ <- f0    	;; Moving the read value from register f0
+	load:    	v0 <- a_    
+	load:    	t1 <- b_    
+	sgt:    	t0 <- v0 , t1
+	not:    	v0 <- t0
+	bgtz:    	Label7
+	load.d:    	f2 <- c_    
+	load.d:    	f6 <- d_    
+	sgt.d:    	f4 <- f2 , f6
+	not:    	f2 <- f4
+	bgtz:    	Label5
+	load:    	v0 <- a_    
+	load:    	t1 <- b_    
+	mul:    	t0 <- v0 , t1
+	store:    	stemp0 <- t0    
+	goto:    	Label6
+
+  Label5:    	
+	load:    	v0 <- a_    
+	load:    	t1 <- b_    
+	sub:    	t0 <- v0 , t1
+	store:    	stemp0 <- t0    
+
+  Label6:    	
+	load:    	v0 <- stemp0    
+	store:    	stemp2 <- v0    
+	goto:    	Label11
+
+  Label7:    	
+	load.d:    	f2 <- d_    
+	load.d:    	f6 <- c_    
+	sgt.d:    	f4 <- f2 , f6
+	not:    	f2 <- f4
+	bgtz:    	Label9
+	load:    	v0 <- a_    
+	iLoad:    	t1 <- 3    	;; Loading integer number 3
+	add:    	t0 <- v0 , t1
+	store:    	stemp1 <- t0    
+	goto:    	Label10
+
+  Label9:    	
+	load:    	v0 <- b_    
+	iLoad:    	t1 <- 10    	;; Loading integer number 10
+	mul:    	t0 <- v0 , t1
+	store:    	stemp1 <- t0    
+
+  Label10:    	
+	load:    	v0 <- stemp1    
+	store:    	stemp2 <- v0    
+
+  Label11:    	
+	load:    	v0 <- stemp2    
+	store:    	a_ <- v0    
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- a_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+**END: RTL Statements

@@ -1,0 +1,20 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Read: Name : a_<int>
+         Read: Name : n_<int>
+         Asgn:
+           LHS (Name : a_<int>)
+           RHS (
+             Arith: Plus<int>
+               L_Opd (Name : n_<int>)
+               R_Opd (Num : 1<int>))
+         Asgn:
+           LHS (Name : n_<int>)
+           RHS (
+             Arith: Minus<int>
+               L_Opd (Name : n_<int>)
+               R_Opd (Num : 1<int>))
+         Write: Name : a_<int>
+         Write: Name : n_<int>
+**END: Abstract Syntax Tree 

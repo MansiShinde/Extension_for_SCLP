@@ -1,0 +1,30 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad.d:    	f2 <- 2.10    	;; Loading float number 2.100000
+	store.d:    	b_ <- f2    
+	iLoad.d:    	f2 <- 8.30    	;; Loading float number 8.300000
+	store.d:    	c_ <- f2    
+	load.d:    	f2 <- b_    
+	load.d:    	f6 <- c_    
+	div.d:    	f4 <- f2 , f6
+	load.d:    	f6 <- a_    
+	div.d:    	f2 <- f4 , f6
+	load.d:    	f6 <- b_    
+	mul.d:    	f4 <- f2 , f6
+	load.d:    	f2 <- a_    
+	add.d:    	f6 <- f2 , f4
+	iLoad.d:    	f2 <- 0.00    	;; Loading float number 0.000000
+	sgt.d:    	f6 , f2
+	iLoad:    	v0 <- 1    
+	movf:    	t0 <- v0 , 0    
+	not:    	t1 <- t0
+	bgtz:    	Label4
+	load.d:    	f2 <- a_    
+	iLoad.d:    	f6 <- 1.00    	;; Loading float number 1.000000
+	sub.d:    	f4 <- f2 , f6
+	store.d:    	a_ <- f4    
+	goto:    	Label4
+
+  Label4:    	
+	NOP
+**END: RTL Statements

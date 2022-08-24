@@ -1,0 +1,18 @@
+Program:
+**PROCEDURE: main, Return Type: <void>**BEGIN: Abstract Syntax Tree 
+         Asgn:
+           LHS (Name : a_<float>)
+           RHS (Num : 2.30<float>)
+         Asgn:
+           LHS (Name : b_<float>)
+           RHS (Num : 3.40<float>)
+         Asgn:
+           LHS (Name : c_<float>)
+           RHS (
+             Arith: Div<float>
+               L_Opd (
+                 Arith: Mult<float>
+                   L_Opd (Name : a_<float>)
+                   R_Opd (Name : b_<float>))
+               R_Opd (Name : a_<float>))
+**END: Abstract Syntax Tree 

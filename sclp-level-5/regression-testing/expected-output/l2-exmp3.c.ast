@@ -1,0 +1,19 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : value1_)
+            RHS (Num : 2.40)
+         Write :
+               (String : "Provide a floating point value:")
+         Read :
+               (Name : value2_)
+         Asgn:
+            LHS (Name : result_)
+            RHS (
+            Arith: MULT
+               LHS (Name : value1_)
+               RHS (Name : value2_))
+         Write :
+               (Name : result_)
+**END: Abstract Syntax Tree 

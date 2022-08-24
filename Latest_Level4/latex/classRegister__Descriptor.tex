@@ -1,0 +1,65 @@
+\hypertarget{classRegister__Descriptor}{}\section{Register\+\_\+\+Descriptor Class Reference}
+\label{classRegister__Descriptor}\index{Register\+\_\+\+Descriptor@{Register\+\_\+\+Descriptor}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a4aa35608780cc1d3d8788f16c6eafb9f}\label{classRegister__Descriptor_a4aa35608780cc1d3d8788f16c6eafb9f}} 
+{\bfseries Register\+\_\+\+Descriptor} (Spim\+\_\+\+Register reg, string nam, Register\+\_\+\+Val\+\_\+\+Type vt, Register\+\_\+\+Use\+\_\+\+Category uc)
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a1d54b888a582927ebcaeba0347c90d72}\label{classRegister__Descriptor_a1d54b888a582927ebcaeba0347c90d72}} 
+void {\bfseries update\+\_\+symbol\+\_\+information} (\hyperlink{classSymbol__Table__Entry}{Symbol\+\_\+\+Table\+\_\+\+Entry} \&symbol\+\_\+entry)
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_ae32d130d6454fa314bdeca5e2d3106e8}\label{classRegister__Descriptor_ae32d130d6454fa314bdeca5e2d3106e8}} 
+bool {\bfseries find\+\_\+symbol\+\_\+entry\+\_\+in\+\_\+list} (\hyperlink{classSymbol__Table__Entry}{Symbol\+\_\+\+Table\+\_\+\+Entry} \&symbol\+\_\+entry)
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a8109c85cdde8d1ec651e7079e426c83c}\label{classRegister__Descriptor_a8109c85cdde8d1ec651e7079e426c83c}} 
+void {\bfseries remove\+\_\+symbol\+\_\+entry\+\_\+from\+\_\+list} (\hyperlink{classSymbol__Table__Entry}{Symbol\+\_\+\+Table\+\_\+\+Entry} \&symbol\+\_\+entry)
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a766b921e7c4526dede50426c53e9ea12}\label{classRegister__Descriptor_a766b921e7c4526dede50426c53e9ea12}} 
+Register\+\_\+\+Use\+\_\+\+Category {\bfseries get\+\_\+use\+\_\+category} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_abf09227ce7ac7523f3868e0d48c80f6b}\label{classRegister__Descriptor_abf09227ce7ac7523f3868e0d48c80f6b}} 
+Spim\+\_\+\+Register {\bfseries get\+\_\+register} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a06678f17e2d3bea3e453eaac03bd7af7}\label{classRegister__Descriptor_a06678f17e2d3bea3e453eaac03bd7af7}} 
+string {\bfseries get\+\_\+name} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a54997357bf8f247eeb658a01233e78e3}\label{classRegister__Descriptor_a54997357bf8f247eeb658a01233e78e3}} 
+Register\+\_\+\+Val\+\_\+\+Type {\bfseries get\+\_\+register\+\_\+type} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_ae3d5292f7f3967ca46df5ab410f832e4}\label{classRegister__Descriptor_ae3d5292f7f3967ca46df5ab410f832e4}} 
+bool {\bfseries is\+\_\+register\+\_\+occupied} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a9ff043de26a94f43f7e918c98353ee05}\label{classRegister__Descriptor_a9ff043de26a94f43f7e918c98353ee05}} 
+void {\bfseries set\+\_\+register\+\_\+occupied} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a5157f9bf84d0bac66fd27b9acf787f90}\label{classRegister__Descriptor_a5157f9bf84d0bac66fd27b9acf787f90}} 
+void {\bfseries reset\+\_\+register\+\_\+occupied} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a7488a3ce939e1f98fe7ee26ceef1fef2}\label{classRegister__Descriptor_a7488a3ce939e1f98fe7ee26ceef1fef2}} 
+bool {\bfseries is\+\_\+used\+\_\+for\+\_\+fn\+\_\+return} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a030595292125f854b9182f360329773e}\label{classRegister__Descriptor_a030595292125f854b9182f360329773e}} 
+void {\bfseries set\+\_\+used\+\_\+for\+\_\+fn\+\_\+return} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a43a472069861c4a32c550b612401446c}\label{classRegister__Descriptor_a43a472069861c4a32c550b612401446c}} 
+void {\bfseries reset\+\_\+used\+\_\+for\+\_\+fn\+\_\+return} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a41facbf33871f0c660e2d4db7bc34720}\label{classRegister__Descriptor_a41facbf33871f0c660e2d4db7bc34720}} 
+bool {\bfseries is\+\_\+used\+\_\+for\+\_\+expr\+\_\+result} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a0ad91317772df4d41de2748905f3e4b2}\label{classRegister__Descriptor_a0ad91317772df4d41de2748905f3e4b2}} 
+void {\bfseries set\+\_\+use\+\_\+for\+\_\+expr\+\_\+result} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a684b04a3a0ea668d4a1186713007b4ed}\label{classRegister__Descriptor_a684b04a3a0ea668d4a1186713007b4ed}} 
+void {\bfseries reset\+\_\+use\+\_\+for\+\_\+expr\+\_\+result} ()
+\item 
+\mbox{\Hypertarget{classRegister__Descriptor_a97126ce0add3175c828489c6f3539849}\label{classRegister__Descriptor_a97126ce0add3175c828489c6f3539849}} 
+{\footnotesize template$<$Register\+\_\+\+Use\+\_\+\+Category dt$>$ }\\bool {\bfseries is\+\_\+free} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+reg-\/alloc.\+hh\item 
+reg-\/alloc.\+cc\end{DoxyCompactItemize}

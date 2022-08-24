@@ -1,0 +1,77 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 5    	;; Loading 5 in v0 to indicate syscall to read integter value
+	read				;; This is where syscall will be made
+	store:    	n_ <- v0    	;; Moving the read value from register v0
+	load:    	v0 <- n_    
+	iLoad:    	t0 <- 5    	;; Loading integer number 5
+	sge:    	v0 <- v0 , t0
+	load:    	t0 <- n_    
+	iLoad:    	t1 <- 10    	;; Loading integer number 10
+	sle:    	t0 <- t0 , t1
+	and:    	v0 <- v0 , t0
+	not:    	v0 <- v0
+	goto Label3
+
+  Label0:    	
+	load:    	v0 <- n_    
+	iLoad:    	t0 <- 0    	;; Loading integer number 0
+	sgt:    	v0 <- v0 , t0
+	not:    	v0 <- v0
+	goto Label1
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- n_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 3    	;; Loading 4 in v0 to indicate syscall to print string value
+	load_addr:    	a0 <- _str_0    	;; Moving the address of the string to be printed into register a0
+	write				;; This is where syscall will be made
+	load:    	v0 <- n_    
+	iLoad:    	t0 <- 1    	;; Loading integer number 1
+	sub:    	v0 <- v0 , t0
+	store:    	n_ <- v0    
+	goto:    	Label0
+
+  Label1:    	
+	goto:    	Label2
+
+  Label3:    	
+	load:    	v0 <- n_    
+	iLoad:    	t0 <- 1024    	;; Loading integer number 1024
+	sle:    	v0 <- v0 , t0
+	iLoad:    	t0 <- 1024    	;; Loading integer number 1024
+	uminus:    	t0 <- t0
+	load:    	t1 <- n_    
+	sge:    	t1 <- t1 , t0
+	and:    	v0 <- v0 , t1
+	not:    	v0 <- v0
+	goto Label6
+
+  Label4:    	
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- n_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 3    	;; Loading 4 in v0 to indicate syscall to print string value
+	load_addr:    	a0 <- _str_0    	;; Moving the address of the string to be printed into register a0
+	write				;; This is where syscall will be made
+	load:    	v0 <- n_    
+	iLoad:    	t0 <- 2    	;; Loading integer number 2
+	div:    	v0 <- v0 , t0
+	store:    	n_ <- v0    
+	load:    	v0 <- n_    
+	iLoad:    	t0 <- 0    	;; Loading integer number 0
+	sne:    	v0 <- v0 , t0
+	goto Label4
+	goto:    	Label5
+
+  Label6:    	
+	iLoad:    	v0 <- 3    	;; Loading 4 in v0 to indicate syscall to print string value
+	load_addr:    	a0 <- _str_1    	;; Moving the address of the string to be printed into register a0
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- n_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+
+  Label5:    	
+
+  Label2:    	
+**END: RTL Statements

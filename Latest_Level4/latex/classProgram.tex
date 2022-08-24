@@ -1,0 +1,87 @@
+\hypertarget{classProgram}{}\section{Program Class Reference}
+\label{classProgram}\index{Program@{Program}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProgram_ac3f95156b03682c2508523962abcbd18}\label{classProgram_ac3f95156b03682c2508523962abcbd18}} 
+void {\bfseries delete\+\_\+all} ()
+\item 
+\mbox{\Hypertarget{classProgram_adccd7571cec24cf64f22c3ac73a6407e}\label{classProgram_adccd7571cec24cf64f22c3ac73a6407e}} 
+\hyperlink{classProcedure}{Procedure} $\ast$ {\bfseries get\+\_\+procedure\+\_\+prototype} (string proc\+\_\+name)
+\item 
+\mbox{\Hypertarget{classProgram_ac19c7cce514b98bb27c0bc2fafb31645}\label{classProgram_ac19c7cce514b98bb27c0bc2fafb31645}} 
+void {\bfseries set\+\_\+proc\+\_\+to\+\_\+map} (string proc\+\_\+name, \hyperlink{classProcedure}{Procedure} $\ast$proc)
+\item 
+\mbox{\Hypertarget{classProgram_aad148d2a90634f698e006352ceb19fe5}\label{classProgram_aad148d2a90634f698e006352ceb19fe5}} 
+void {\bfseries called\+\_\+proc\+\_\+are\+\_\+defined\+\_\+check} ()
+\item 
+\mbox{\Hypertarget{classProgram_ac0630a98b9fb6198a07ec0044c4a0de7}\label{classProgram_ac0630a98b9fb6198a07ec0044c4a0de7}} 
+void {\bfseries set\+\_\+procedure\+\_\+map} (map$<$ string, \hyperlink{classProcedure}{Procedure} $\ast$$>$ \&proc)
+\item 
+\mbox{\Hypertarget{classProgram_a13156bc0b9bab6b729010ee8572f0f04}\label{classProgram_a13156bc0b9bab6b729010ee8572f0f04}} 
+void {\bfseries set\+\_\+procedure} (\hyperlink{classProcedure}{Procedure} $\ast$proc, int line)
+\item 
+\mbox{\Hypertarget{classProgram_adc447425a4b38f83afc52805b922a021}\label{classProgram_adc447425a4b38f83afc52805b922a021}} 
+void {\bfseries set\+\_\+global\+\_\+table} (\hyperlink{classSymbol__Table}{Symbol\+\_\+\+Table} \&new\+\_\+global\+\_\+table)
+\item 
+\mbox{\Hypertarget{classProgram_ad9c445349520e9782f76200002834f76}\label{classProgram_ad9c445349520e9782f76200002834f76}} 
+\hyperlink{classSymbol__Table__Entry}{Symbol\+\_\+\+Table\+\_\+\+Entry} \& {\bfseries get\+\_\+symbol\+\_\+table\+\_\+entry} (string variable)
+\item 
+\mbox{\Hypertarget{classProgram_ab07994a4f7e065d2e434cb29cb61ffdf}\label{classProgram_ab07994a4f7e065d2e434cb29cb61ffdf}} 
+int {\bfseries add\+\_\+string\+\_\+to\+\_\+string\+\_\+table} (string s)
+\item 
+\mbox{\Hypertarget{classProgram_a62e1a5858c04fa41ca9a0c2eaa20b2c4}\label{classProgram_a62e1a5858c04fa41ca9a0c2eaa20b2c4}} 
+string {\bfseries get\+\_\+string} (int str\+\_\+key)
+\item 
+\mbox{\Hypertarget{classProgram_a6679b78affa93ca6983fc8182b277c41}\label{classProgram_a6679b78affa93ca6983fc8182b277c41}} 
+void {\bfseries print\+\_\+sym} ()
+\item 
+\mbox{\Hypertarget{classProgram_a4eef215eb241fc6b62c70799e1efc7a5}\label{classProgram_a4eef215eb241fc6b62c70799e1efc7a5}} 
+void {\bfseries print\+\_\+ast} ()
+\item 
+\mbox{\Hypertarget{classProgram_a72d775e0b55274f48db4d75130ad32af}\label{classProgram_a72d775e0b55274f48db4d75130ad32af}} 
+\hyperlink{classProcedure}{Procedure} $\ast$ {\bfseries get\+\_\+main\+\_\+procedure} (ostream \&file\+\_\+buffer)
+\item 
+\mbox{\Hypertarget{classProgram_ab0d30db75d63c623d067002b8c4befcd}\label{classProgram_ab0d30db75d63c623d067002b8c4befcd}} 
+bool {\bfseries variable\+\_\+proc\+\_\+name\+\_\+check} (string symbol)
+\item 
+\mbox{\Hypertarget{classProgram_a66d425effdc3a3f26726385e58523c91}\label{classProgram_a66d425effdc3a3f26726385e58523c91}} 
+bool {\bfseries variable\+\_\+in\+\_\+symbol\+\_\+list\+\_\+check} (string variable)
+\item 
+\mbox{\Hypertarget{classProgram_a629ae590baecfa9c8cd85d16290a90ea}\label{classProgram_a629ae590baecfa9c8cd85d16290a90ea}} 
+void {\bfseries global\+\_\+list\+\_\+in\+\_\+proc\+\_\+check} ()
+\item 
+\mbox{\Hypertarget{classProgram_a20b87bdabc4748ee216d3cc18ca9fb24}\label{classProgram_a20b87bdabc4748ee216d3cc18ca9fb24}} 
+bool {\bfseries variable\+\_\+in\+\_\+proc\+\_\+map\+\_\+check} (string symbol)
+\item 
+\mbox{\Hypertarget{classProgram_a5aada4a73fb44c56743499d0cebc7299}\label{classProgram_a5aada4a73fb44c56743499d0cebc7299}} 
+void {\bfseries global\+\_\+list\+\_\+in\+\_\+proc\+\_\+map\+\_\+check} ()
+\item 
+\mbox{\Hypertarget{classProgram_a8cef49bb8efafd1211b545e4a1d1124c}\label{classProgram_a8cef49bb8efafd1211b545e4a1d1124c}} 
+bool {\bfseries proc\+\_\+exists} (string proc\+\_\+name)
+\item 
+\mbox{\Hypertarget{classProgram_a475fd2320538f8e597bb9d849d0405f7}\label{classProgram_a475fd2320538f8e597bb9d849d0405f7}} 
+void {\bfseries gen\+\_\+tac} ()
+\item 
+\mbox{\Hypertarget{classProgram_a45c8d1320b806c2bdbb57fc3aa42074b}\label{classProgram_a45c8d1320b806c2bdbb57fc3aa42074b}} 
+void {\bfseries print\+\_\+tac} ()
+\item 
+\mbox{\Hypertarget{classProgram_a5da38344307cd6b9e50759eec49cb37e}\label{classProgram_a5da38344307cd6b9e50759eec49cb37e}} 
+void {\bfseries gen\+\_\+rtl} ()
+\item 
+\mbox{\Hypertarget{classProgram_a482574e8722887856aa0f11d10bffe99}\label{classProgram_a482574e8722887856aa0f11d10bffe99}} 
+void {\bfseries print\+\_\+rtl} ()
+\item 
+\mbox{\Hypertarget{classProgram_aebdee93c2ea17e9c2a64a72782244f5b}\label{classProgram_aebdee93c2ea17e9c2a64a72782244f5b}} 
+void {\bfseries print\+\_\+assembly} ()
+\item 
+\mbox{\Hypertarget{classProgram_ad3d51e1f71725720471858c8c077cf1b}\label{classProgram_ad3d51e1f71725720471858c8c077cf1b}} 
+void {\bfseries print\+\_\+string\+\_\+table} (ostream \&file\+\_\+buffer)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+program.\+hh\item 
+program-\/compile.\+cc\item 
+program.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,9 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : gv_lv_)
+            RHS (Num : 1)
+         Write :
+               (Name : gv_lv_)
+**END: Abstract Syntax Tree 

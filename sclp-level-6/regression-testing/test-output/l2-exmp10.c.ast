@@ -1,0 +1,21 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+           LHS (Name : a_<int>)
+           RHS (Num : 2<int>)
+         Asgn:
+           LHS (Name : b_<int>)
+           RHS (Num : 3<int>)
+         Asgn:
+           LHS (Name : c_<int>)
+           RHS (Num : 4<int>)
+         Asgn:
+           LHS (Name : a_<int>)
+           RHS (
+             Arith: Uminus<int>
+               L_Opd (
+                 Arith: Mult<int>
+                   L_Opd (Name : c_<int>)
+                   R_Opd (Name : b_<int>)))
+**END: Abstract Syntax Tree 

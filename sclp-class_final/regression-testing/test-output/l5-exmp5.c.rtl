@@ -1,0 +1,88 @@
+**PROCEDURE: func1_
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 5    	;; Loading integer number 5
+	store:    	i2_ <- v0    
+	iLoad.d:    	f2 <- 5.00    	;; Loading float number 5.000000
+	store.d:    	f2_ <- f2    
+**END: RTL Statements
+**PROCEDURE: func2_
+**BEGIN: RTL Statements
+	load:    	v0 <- a_    
+	iLoad:    	t1 <- 10    	;; Loading integer number 10
+	add:    	t0 <- v0 , t1
+	store:    	a_ <- t0    
+	iLoad:    	v0 <- 5    	;; Loading integer number 5
+	store:    	i1_ <- v0    
+	load:    	v0 <- a_    
+	load:    	t1 <- i1_    
+	add:    	t0 <- v0 , t1
+	load:    	t1 <- i2_    
+	add:    	v0 <- t0 , t1
+	iLoad:    	t1 <- 2    	;; Loading integer number 2
+	add:    	t0 <- v0 , t1
+	goto:    	Label3
+
+  Label3:    	
+	move:    	v1 <- t0    
+	return		v1
+**END: RTL Statements
+**PROCEDURE: func3_
+**BEGIN: RTL Statements
+	load.d:    	f2 <- b_    
+	load.d:    	f6 <- f2_    
+	add.d:    	f4 <- f2 , f6
+	store.d:    	b_ <- f4    
+	load.d:    	f2 <- c_    
+	iLoad.d:    	f6 <- 10.50    	;; Loading float number 10.500000
+	add.d:    	f4 <- f2 , f6
+	store.d:    	c_ <- f4    
+	load.d:    	f2 <- b_    
+	load.d:    	f6 <- c_    
+	add.d:    	f4 <- f2 , f6
+	goto:    	Label3
+
+  Label3:    	
+	move:    	f0 <- f4    
+	return		f0
+**END: RTL Statements
+**PROCEDURE: func4_
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 4    	;; Loading integer number 4
+	store:    	i1_ <- v0    
+	load:    	v0 <- i1_    
+	load:    	t1 <- i1_    
+	add:    	t0 <- v0 , t1
+	goto:    	Label3
+
+  Label3:    	
+	move:    	v1 <- t0    
+	return		v1
+**END: RTL Statements
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	call func1_
+	v1 = call func4_
+	store:    	i2_ <- v1    
+	load:    	v0 <- i2_    
+	push:    	v0
+	load.d:    	f2 <- f2_    
+	push:    	f2
+	load:    	v0 <- i1_    
+	push:    	v0
+	v1 = call func2_
+	store:    	i2_ <- v1    
+	load.d:    	f2 <- f2_    
+	push:    	f2
+	load.d:    	f2 <- f1_    
+	push:    	f2
+	load:    	v0 <- i1_    
+	push:    	v0
+	f0 = call func3_
+	store.d:    	f2_ <- f0    
+	iLoad:    	v0 <- 3    	;; Loading 3 in v0 to indicate syscall to print double value
+	load.d:    	f12 <- f1_    	;; Moving the value to be printed into register f12
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 3    	;; Loading 3 in v0 to indicate syscall to print double value
+	load.d:    	f12 <- f2_    	;; Moving the value to be printed into register f12
+	write				;; This is where syscall will be made
+**END: RTL Statements

@@ -1,0 +1,23 @@
+
+1. sclp - understanding of basic construction of sclp
+2. ast
+3. icode
+4. lex
+5. yacc
+
+
+
+1. detailed understanding of ast and icode of different programs using sclp
+2. drawing class diagrams - connecting the classes using the code
+3. practice lex and yacc using 3 tasks - basic calculator, extended calculator for assignments, extended calculator for complex numbers
+4. parsing and scanning detailed understanding - shift reduced parsing 
+
+
+program ---> set of procedures ---> set of statements ---> set of asts ---> set of icodes ---> print assembly language
+
+
+Problem Statements 
+
+1. developing control flow graphs and ssa and optimizing them for sclp
+
+2. developing sclp for classes, dynamic memory allocation, structures - atleast till asts and icodes

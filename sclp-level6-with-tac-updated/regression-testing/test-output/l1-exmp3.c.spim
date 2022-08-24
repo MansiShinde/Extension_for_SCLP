@@ -1,0 +1,47 @@
+
+	.data
+b_:	.word 0
+_str_0:	.ascii "cs302"
+_str_1:	.ascii "316"
+
+	.text 			# The .text assembler directive indicates
+	.globl main		# The following is the code (as oppose to data)
+main:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 20		# Make space for the locals
+# Prologue ends
+
+	li $v0, 0		# Source:0
+	sw $v0, b_	# Dest: b_
+	la $v0, _str_0		# String = "cs302"
+	sw $v0, -12($fp)	# Dest: s_
+	la $v0, _str_1		# String = "316"
+	sw $v0, -8($fp)	# Dest: k_
+	li $v0, 4		# Loading 4 in v0 to indicate syscall to print string value
+	lw $a0, -12($fp)		# Source:s_
+	syscall
+	li $v0, 1		# Loading 1 in v0 to indicate syscall to print integter value
+	lw $a0, b_		# Moving the value to be printed into register a0
+	syscall
+	li $v0, 5		# Loading 5 in v0 to indicate syscall to read integter value
+	syscall
+	sw $v0, -4($fp)	# Moving the read value from register v0
+	lw $v0, -4($fp)		# Source:a_
+	sw $v0, b_	# Dest: b_
+	li $v0, 1		# Loading 1 in v0 to indicate syscall to print integter value
+	lw $a0, b_		# Moving the value to be printed into register a0
+	syscall
+
+# Epilogue Begins
+epilogue_main:
+	add $sp, $sp, 20
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+

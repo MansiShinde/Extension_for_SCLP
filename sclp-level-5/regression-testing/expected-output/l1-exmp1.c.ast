@@ -1,0 +1,26 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : local_)
+            RHS (Num : 2)
+         Asgn:
+            LHS (Name : global_)
+            RHS (Num : 1)
+         Read :
+               (Name : temp_)
+         Asgn:
+            LHS (Name : temp_)
+            RHS (Name : local_)
+         Asgn:
+            LHS (Name : a_)
+            RHS (String : "Welcome to CS316")
+         Write :
+               (Name : local_)
+         Write :
+               (Name : global_)
+         Write :
+               (Name : a_)
+         Write :
+               (Name : temp_)
+**END: Abstract Syntax Tree 

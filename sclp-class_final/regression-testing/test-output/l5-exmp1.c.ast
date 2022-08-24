@@ -1,0 +1,11 @@
+Program:
+**PROCEDURE: f_, Return Type: <int>**BEGIN: Abstract Syntax Tree 
+         Return: Name : a_<int>
+**END: Abstract Syntax Tree 
+**PROCEDURE: g_, Return Type: <int>**BEGIN: Abstract Syntax Tree 
+         Return: Num : 0<int>
+**END: Abstract Syntax Tree 
+**PROCEDURE: main, Return Type: <void>**BEGIN: Abstract Syntax Tree 
+         FN CALL: f_()
+         FN CALL: g_()
+**END: Abstract Syntax Tree 

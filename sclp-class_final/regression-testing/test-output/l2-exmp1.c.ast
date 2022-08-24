@@ -1,0 +1,39 @@
+Program:
+**PROCEDURE: main, Return Type: <void>**BEGIN: Abstract Syntax Tree 
+         Asgn:
+           LHS (Name : local_<int>)
+           RHS (Num : 2<int>)
+         Asgn:
+           LHS (Name : global_<int>)
+           RHS (Num : 1<int>)
+         Asgn:
+           LHS (Name : test_<int>)
+           RHS (Num : 1<int>)
+         Asgn:
+           LHS (Name : temp_<int>)
+           RHS (Num : 1<int>)
+         Write: Name : local_<int>
+         Write: Name : global_<int>
+         Read: Name : temp_<int>
+         Asgn:
+           LHS (Name : test_<int>)
+           RHS (
+             Arith: Plus<int>
+               L_Opd (Name : global_<int>)
+               R_Opd (
+                 Arith: Mult<int>
+                   L_Opd (Name : local_<int>)
+                   R_Opd (Name : temp_<int>)))
+         Write: Name : test_<int>
+         Read: Name : temp_<int>
+         Asgn:
+           LHS (Name : test_<int>)
+           RHS (
+             Arith: Div<int>
+               L_Opd (
+                 Arith: Mult<int>
+                   L_Opd (Name : global_<int>)
+                   R_Opd (Name : local_<int>))
+               R_Opd (Name : temp_<int>))
+         Write: Name : test_<int>
+**END: Abstract Syntax Tree 

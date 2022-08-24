@@ -1,0 +1,103 @@
+
+////////////////////////////////////////////////////////
+class Method_Access_TAC_Stmt: public TAC_Stmt
+{
+	TAC_Opd * base;
+	TAC_Opd * method;
+
+public:
+	Method_Access_TAC_Stmt(TAC_Opd * b, TAC_Opd * m);
+	~Method_Access_TAC_Stmt();
+
+	TAC_Opd * get_base_opd();
+	TAC_Opd * get_method();
+
+	//void set_opd1(string proc_name);
+	//void set_result(TAC_Opd * opd);
+
+	RTL_For_TAC & gen_rtl();
+
+	void print_tac_stmt(ostream & file_buffer);
+
+};
+
+//////////////////////////////////////////////////////
+
+
+Method_Access_TAC_Stmt :: Method_Access_TAC_Stmt(TAC_Opd * b, TAC_Opd * m)
+{
+	CHECK_INVARIANT (b!=NULL, "The base of Method_TAC_Opd cannot be NULL");
+	CHECK_INVARIANT (m!=NULL, "The method of Method_TAC_Opd cannot be NULL");
+	
+	CHECK_INVARIANT (b->is_a_variable(), "The base of Access_TAC_Opd must be a variable");
+
+	base = b;
+	method = m;
+}
+
+Method_Access_TAC_Stmt::~Method_Access_TAC_Stmt() { }
+
+TAC_Opd * Method_Access_TAC_Stmt :: get_base_opd()
+{
+	return base;
+}
+
+TAC_Opd * Method_Access_TAC_Stmt :: get_method()
+{
+	return method;
+}
+
+void Method_Access_TAC_Stmt :: print_tac_stmt(ostream & file_buffer)
+{
+	file_buffer << "\t" ;
+	base->print_opd(file_buffer);
+	file_buffer << "." ;
+	method->print_opd(file_buffer);
+	file_buffer << "\n";
+}
+
+
+
+TAC_For_Ast * Method_Access_Ast:: gen_tac()
+{
+	CHECK_INVARIANT((base != NULL), "Base cannot be null");
+	CHECK_INVARIANT((method != NULL), "Method cannot be null");
+
+	TAC_For_Ast  * base_code = base->gen_tac();
+	TAC_For_Ast * method_code = method->gen_tac();
+
+	CHECK_INVARIANT(base_code!=NULL, "Code generated for base of Field AST cannot be NULL");
+	CHECK_INVARIANT(method_code!=NULL, "Code generated for method of Field AST cannot be NULL");
+	TAC_Opd * method_res = method_code->get_result();
+	CHECK_INVARIANT(method_res, "Result of TAC list cannot be null");
+
+	TAC_Opd * base_res = base_code->get_result();
+	CHECK_INVARIANT(base_res, "Result of TAC list cannot be null");
+
+	TAC_Stmt * method_access_stmt = new Method_Access_TAC_Stmt(base_res, method_res);
+
+	// Make new list 
+	list<TAC_Stmt *> * tac_list = new list<TAC_Stmt *>;
+	CHECK_INVARIANT(tac_list, "TAC list cannot be null");
+
+        // Copy LHS list to the new list 
+	if (base_code->get_tac_list() != NULL)
+		tac_list = base_code->get_tac_list();
+
+        // Append RHS list to the new list 
+	if (method_code->get_tac_list() != NULL)
+		tac_list->splice(tac_list->end(), *method_code->get_tac_list());
+
+	TAC_Opd * list_result = NULL;
+	TAC_For_Ast * ast_code = new TAC_For_Ast(tac_list, list_result);
+
+	return ast_code;
+}
+
+
+
+/////////////////////////////////////////// Method Access Statements  ////////////////////////////////////
+void Method_Access_TAC_Stmt :: print_tac_stmt_in_cfg(ostream & file_buffer) 
+{
+	print_tac_stmt(file_buffer);
+}

@@ -1,0 +1,93 @@
+\hypertarget{classProcedure}{}\section{Procedure Class Reference}
+\label{classProcedure}\index{Procedure@{Procedure}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProcedure_a79f063eb825cc4653bf1801e01aefcef}\label{classProcedure_a79f063eb825cc4653bf1801e01aefcef}} 
+{\bfseries Procedure} (Data\+\_\+\+Type proc\+\_\+return\+\_\+type, string proc\+\_\+name, int line)
+\item 
+\mbox{\Hypertarget{classProcedure_a9705537b086b1daac7a2ea66d00f39f7}\label{classProcedure_a9705537b086b1daac7a2ea66d00f39f7}} 
+void {\bfseries operator==} (\hyperlink{classProcedure}{Procedure} \&proc\+\_\+proto)
+\item 
+\mbox{\Hypertarget{classProcedure_ad97d178196729055a2e32de026f00e9d}\label{classProcedure_ad97d178196729055a2e32de026f00e9d}} 
+void {\bfseries operator=} (\hyperlink{classProcedure}{Procedure} \&proc\+\_\+proto)
+\item 
+\mbox{\Hypertarget{classProcedure_a0ca44b3ef229d7c426ba83b6f13d3c21}\label{classProcedure_a0ca44b3ef229d7c426ba83b6f13d3c21}} 
+bool {\bfseries is\+\_\+proc\+\_\+called} ()
+\item 
+\mbox{\Hypertarget{classProcedure_ae4f95fa42c39d41583e66fc0fcb4eeee}\label{classProcedure_ae4f95fa42c39d41583e66fc0fcb4eeee}} 
+void {\bfseries set\+\_\+proc\+\_\+is\+\_\+called} ()
+\item 
+\mbox{\Hypertarget{classProcedure_a72476f6329f16a073c359622587664c4}\label{classProcedure_a72476f6329f16a073c359622587664c4}} 
+bool {\bfseries is\+\_\+proc\+\_\+defined} ()
+\item 
+\mbox{\Hypertarget{classProcedure_a1fb033215886edb1461ce6b3dcd22519}\label{classProcedure_a1fb033215886edb1461ce6b3dcd22519}} 
+void {\bfseries set\+\_\+proc\+\_\+is\+\_\+defined} ()
+\item 
+\mbox{\Hypertarget{classProcedure_a12a7f7e39647abf167d3145a8d2f0fee}\label{classProcedure_a12a7f7e39647abf167d3145a8d2f0fee}} 
+string {\bfseries get\+\_\+proc\+\_\+name} ()
+\item 
+\mbox{\Hypertarget{classProcedure_a15f64b0ab32d0a4e8c7a685c24b5b284}\label{classProcedure_a15f64b0ab32d0a4e8c7a685c24b5b284}} 
+void {\bfseries set\+\_\+local\+\_\+list} (\hyperlink{classSymbol__Table}{Symbol\+\_\+\+Table} \&new\+\_\+list)
+\item 
+\mbox{\Hypertarget{classProcedure_abb766661ce9552a111e13fa3c98ab274}\label{classProcedure_abb766661ce9552a111e13fa3c98ab274}} 
+\hyperlink{classSymbol__Table}{Symbol\+\_\+\+Table} {\bfseries get\+\_\+local\+\_\+list} ()
+\item 
+\mbox{\Hypertarget{classProcedure_a75a08cfd0a8401c09d78fec666c87ef3}\label{classProcedure_a75a08cfd0a8401c09d78fec666c87ef3}} 
+void {\bfseries set\+\_\+ast\+\_\+list} (list$<$ \hyperlink{classAst}{Ast} $\ast$$>$ \&ast\+\_\+list)
+\item 
+\mbox{\Hypertarget{classProcedure_a657086c14d842c25c8e20182b1aaac83}\label{classProcedure_a657086c14d842c25c8e20182b1aaac83}} 
+void {\bfseries set\+\_\+formal\+\_\+param\+\_\+list} (\hyperlink{classSymbol__Table}{Symbol\+\_\+\+Table} \&new\+\_\+list)
+\item 
+\mbox{\Hypertarget{classProcedure_a1e102b7cdd97bd7c9097c2f066d0e54e}\label{classProcedure_a1e102b7cdd97bd7c9097c2f066d0e54e}} 
+\hyperlink{classSymbol__Table}{Symbol\+\_\+\+Table} \& {\bfseries get\+\_\+formal\+\_\+param\+\_\+list} ()
+\item 
+\mbox{\Hypertarget{classProcedure_a2d37282048f900e788976e0f836f1b39}\label{classProcedure_a2d37282048f900e788976e0f836f1b39}} 
+Data\+\_\+\+Type {\bfseries get\+\_\+return\+\_\+type} ()
+\item 
+\mbox{\Hypertarget{classProcedure_a53266e4f419e083c1b625936ee5d87a7}\label{classProcedure_a53266e4f419e083c1b625936ee5d87a7}} 
+void {\bfseries set\+\_\+return\+\_\+type} (Data\+\_\+\+Type ret\+\_\+type)
+\item 
+\mbox{\Hypertarget{classProcedure_a27205c6d035b4a1dce8084c1dfb283c8}\label{classProcedure_a27205c6d035b4a1dce8084c1dfb283c8}} 
+\hyperlink{classSymbol__Table__Entry}{Symbol\+\_\+\+Table\+\_\+\+Entry} \& {\bfseries get\+\_\+symbol\+\_\+table\+\_\+entry} (string variable\+\_\+name)
+\item 
+\mbox{\Hypertarget{classProcedure_a9b428954dcaa183d7d9e9de6e9911c59}\label{classProcedure_a9b428954dcaa183d7d9e9de6e9911c59}} 
+\hyperlink{classSymbol__Table__Entry}{Symbol\+\_\+\+Table\+\_\+\+Entry} \& {\bfseries get\+\_\+formal\+\_\+param\+\_\+entry} (string variable\+\_\+name)
+\item 
+\mbox{\Hypertarget{classProcedure_a6c0f80b0f5ee4fab28daa15c7e16d7f0}\label{classProcedure_a6c0f80b0f5ee4fab28daa15c7e16d7f0}} 
+void {\bfseries print\+\_\+ast} (ostream \&file\+\_\+buffer)
+\item 
+\mbox{\Hypertarget{classProcedure_aca7277b92538b9d2ca9934d82bac4d33}\label{classProcedure_aca7277b92538b9d2ca9934d82bac4d33}} 
+void {\bfseries print\+\_\+sym} (ostream \&file\+\_\+buffer)
+\item 
+\mbox{\Hypertarget{classProcedure_a33ef0860b989a8feaef48fdc4f035c96}\label{classProcedure_a33ef0860b989a8feaef48fdc4f035c96}} 
+bool {\bfseries variable\+\_\+in\+\_\+symbol\+\_\+list\+\_\+check} (string variable)
+\item 
+\mbox{\Hypertarget{classProcedure_a6c50be43c82b60709b69a8ad74ad2927}\label{classProcedure_a6c50be43c82b60709b69a8ad74ad2927}} 
+bool {\bfseries variable\+\_\+in\+\_\+formal\+\_\+list\+\_\+check} (string variable)
+\item 
+\mbox{\Hypertarget{classProcedure_ad2a17f54a0cabe054b291705adbe3168}\label{classProcedure_ad2a17f54a0cabe054b291705adbe3168}} 
+string {\bfseries get\+\_\+variable\+\_\+in\+\_\+formal\+\_\+list} (int position)
+\item 
+\mbox{\Hypertarget{classProcedure_af30ac020a911538474d3ad21ed05a01e}\label{classProcedure_af30ac020a911538474d3ad21ed05a01e}} 
+void {\bfseries gen\+\_\+tac} ()
+\item 
+\mbox{\Hypertarget{classProcedure_a31a564b7c85241fb7dcbedfae26deef9}\label{classProcedure_a31a564b7c85241fb7dcbedfae26deef9}} 
+void {\bfseries gen\+\_\+rtl} ()
+\item 
+\mbox{\Hypertarget{classProcedure_a2928b15ac5462dec2c299271659ebd1e}\label{classProcedure_a2928b15ac5462dec2c299271659ebd1e}} 
+void {\bfseries print\+\_\+tac} (ostream \&file\+\_\+buffer)
+\item 
+\mbox{\Hypertarget{classProcedure_ac5033df3107742826a3481fac188906a}\label{classProcedure_ac5033df3107742826a3481fac188906a}} 
+void {\bfseries print\+\_\+rtl} (ostream \&file\+\_\+buffer)
+\item 
+\mbox{\Hypertarget{classProcedure_aa0b4855bad5d9b9de1e159fb9c8a6fdc}\label{classProcedure_aa0b4855bad5d9b9de1e159fb9c8a6fdc}} 
+void {\bfseries print\+\_\+assembly} (ostream \&file\+\_\+buffer)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+procedure.\+hh\item 
+procedure-\/compile.\+cc\item 
+procedure.\+cc\end{DoxyCompactItemize}

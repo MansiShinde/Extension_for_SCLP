@@ -1,0 +1,10 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+           LHS (Name : a_<string>)
+           RHS (
+             Field_Access: <string>
+               Base (Name : x_<class - A_>)
+               Offset (Name : abc_<string>))
+**END: Abstract Syntax Tree 

@@ -1,0 +1,13 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+           LHS (Name : a_<int>)
+           RHS (
+                 Condition: GT<bool>
+                   L_Opd (Name : b_<int>)
+                   R_Opd (Name : c_<int>)
+                 True_Part (Name : b_<int>)
+                 False_Part (Name : c_<int>))
+         Write: Num : 4<int>
+**END: Abstract Syntax Tree 

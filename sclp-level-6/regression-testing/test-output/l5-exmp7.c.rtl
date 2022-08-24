@@ -1,0 +1,20 @@
+**PROCEDURE: f1_
+**BEGIN: RTL Statements
+	load:    	v0 <- p_    
+	goto:    	Label3
+
+  Label3:    	
+	move:    	v1 <- v0    
+	return		v1
+**END: RTL Statements
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 10    	;; Loading integer number 10
+	iLoad:    	t1 <- 5    	;; Loading integer number 5
+	sgt:    	t0 <- v0 , t1
+	store:    	x_ <- t0    
+	load:    	v0 <- x_    
+	push:    	v0
+	v1 = call f1_
+	store:    	x_ <- v1    
+**END: RTL Statements

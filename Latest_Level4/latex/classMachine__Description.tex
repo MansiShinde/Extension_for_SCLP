@@ -1,0 +1,47 @@
+\hypertarget{classMachine__Description}{}\section{Machine\+\_\+\+Description Class Reference}
+\label{classMachine__Description}\index{Machine\+\_\+\+Description@{Machine\+\_\+\+Description}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMachine__Description_ae41b3d24e739b0f72e2a368e4554d59a}\label{classMachine__Description_ae41b3d24e739b0f72e2a368e4554d59a}} 
+void {\bfseries initialize\+\_\+instruction\+\_\+table} ()
+\item 
+\mbox{\Hypertarget{classMachine__Description_aea2c191e8c23720a89c4c7e1d706fccc}\label{classMachine__Description_aea2c191e8c23720a89c4c7e1d706fccc}} 
+void {\bfseries initialize\+\_\+register\+\_\+table} ()
+\item 
+\mbox{\Hypertarget{classMachine__Description_ac174c5197e269140a1df808528bed17e}\label{classMachine__Description_ac174c5197e269140a1df808528bed17e}} 
+void {\bfseries validate\+\_\+init\+\_\+local\+\_\+register\+\_\+mapping\+\_\+before\+\_\+fn\+\_\+call} ()
+\item 
+\mbox{\Hypertarget{classMachine__Description_a37a985c2f6c5cab5643198fbcfcd612f}\label{classMachine__Description_a37a985c2f6c5cab5643198fbcfcd612f}} 
+void {\bfseries validate\+\_\+init\+\_\+local\+\_\+register\+\_\+mapping} ()
+\item 
+\mbox{\Hypertarget{classMachine__Description_a25249f9cf13799a68d7cb61b4f9f441e}\label{classMachine__Description_a25249f9cf13799a68d7cb61b4f9f441e}} 
+void {\bfseries clear\+\_\+local\+\_\+register\+\_\+mappings} ()
+\item 
+\mbox{\Hypertarget{classMachine__Description_a7e4f6cb207f09ea0af63bbd6d6b4ed0f}\label{classMachine__Description_a7e4f6cb207f09ea0af63bbd6d6b4ed0f}} 
+void {\bfseries clear\+\_\+reg\+\_\+not\+\_\+used\+\_\+for\+\_\+expr\+\_\+result} ()
+\item 
+\mbox{\Hypertarget{classMachine__Description_a48ec0a979193c96cc2358a1734d2a3d2}\label{classMachine__Description_a48ec0a979193c96cc2358a1734d2a3d2}} 
+{\footnotesize template$<$Register\+\_\+\+Use\+\_\+\+Category dt$>$ }\\int {\bfseries count\+\_\+free\+\_\+register} ()
+\item 
+\mbox{\Hypertarget{classMachine__Description_ad87702471660a53e20aecbccc720ee05}\label{classMachine__Description_ad87702471660a53e20aecbccc720ee05}} 
+{\footnotesize template$<$Register\+\_\+\+Use\+\_\+\+Category dt$>$ }\\\hyperlink{classRegister__Descriptor}{Register\+\_\+\+Descriptor} $\ast$ {\bfseries get\+\_\+new\+\_\+register} ()
+\item 
+\mbox{\Hypertarget{classMachine__Description_a2c7d822e878f24f24c81b9797358b4fb}\label{classMachine__Description_a2c7d822e878f24f24c81b9797358b4fb}} 
+\hyperlink{classRegister__Descriptor}{Register\+\_\+\+Descriptor} $\ast$ {\bfseries get\+\_\+no\+\_\+reg} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMachine__Description_aa122bf738407bb2b3fea850e2cd00fc4}\label{classMachine__Description_aa122bf738407bb2b3fea850e2cd00fc4}} 
+map$<$ R\+T\+L\+\_\+\+Op, \hyperlink{classRTL__Insn__Descriptor}{R\+T\+L\+\_\+\+Insn\+\_\+\+Descriptor} $\ast$ $>$ {\bfseries spim\+\_\+instruction\+\_\+table}
+\item 
+\mbox{\Hypertarget{classMachine__Description_a20b86b8722fdeb33d51055f8a3f81ac9}\label{classMachine__Description_a20b86b8722fdeb33d51055f8a3f81ac9}} 
+map$<$ Spim\+\_\+\+Register, \hyperlink{classRegister__Descriptor}{Register\+\_\+\+Descriptor} $\ast$ $>$ {\bfseries spim\+\_\+register\+\_\+table}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+reg-\/alloc.\+hh\item 
+reg-\/alloc.\+cc\end{DoxyCompactItemize}

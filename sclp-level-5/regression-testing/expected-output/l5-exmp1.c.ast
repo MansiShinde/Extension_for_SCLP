@@ -1,0 +1,16 @@
+Program:
+**PROCEDURE: f_, Return Type: INT
+**BEGIN: Abstract Syntax Tree 
+         RETURN Name : a_
+
+**END: Abstract Syntax Tree 
+**PROCEDURE: g_, Return Type: INT
+**BEGIN: Abstract Syntax Tree 
+         RETURN Num : 0
+
+**END: Abstract Syntax Tree 
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         FN CALL: f_()
+         FN CALL: g_()
+**END: Abstract Syntax Tree 

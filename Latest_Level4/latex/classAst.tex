@@ -1,0 +1,67 @@
+\hypertarget{classAst}{}\section{Ast Class Reference}
+\label{classAst}\index{Ast@{Ast}}
+
+
+Inheritance diagram for Ast\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAst__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAst_a59e90c47de802634360a46095bdfb9ac}\label{classAst_a59e90c47de802634360a46095bdfb9ac}} 
+virtual Data\+\_\+\+Type {\bfseries get\+\_\+data\+\_\+type} ()
+\item 
+\mbox{\Hypertarget{classAst_a5a8064877aa16ce098ddc75f93f55c1f}\label{classAst_a5a8064877aa16ce098ddc75f93f55c1f}} 
+virtual void {\bfseries set\+\_\+data\+\_\+type} (Data\+\_\+\+Type dt)
+\item 
+\mbox{\Hypertarget{classAst_a7c5270909ce443f527f76d5911ebdf92}\label{classAst_a7c5270909ce443f527f76d5911ebdf92}} 
+virtual bool {\bfseries is\+\_\+value\+\_\+zero} ()
+\item 
+\mbox{\Hypertarget{classAst_ae30169be4e52e013a5e6681cff1da803}\label{classAst_ae30169be4e52e013a5e6681cff1da803}} 
+virtual void {\bfseries type\+\_\+check\+\_\+ast} ()
+\item 
+\mbox{\Hypertarget{classAst_acfee244438a83610c1ad31772b6e0386}\label{classAst_acfee244438a83610c1ad31772b6e0386}} 
+virtual \hyperlink{classSymbol__Table__Entry}{Symbol\+\_\+\+Table\+\_\+\+Entry} \& {\bfseries get\+\_\+symbol\+\_\+entry} ()
+\item 
+\mbox{\Hypertarget{classAst_a98a074f3b5a6b264644b971c453ca07d}\label{classAst_a98a074f3b5a6b264644b971c453ca07d}} 
+virtual void {\bfseries print\+\_\+ast} (ostream \&file\+\_\+buffer)=0
+\item 
+\mbox{\Hypertarget{classAst_a0f9ef33a1229580bc9b92cd831681981}\label{classAst_a0f9ef33a1229580bc9b92cd831681981}} 
+virtual \hyperlink{classTAC__For__Ast}{T\+A\+C\+\_\+\+For\+\_\+\+Ast} $\ast$ {\bfseries gen\+\_\+tac} ()
+\item 
+\mbox{\Hypertarget{classAst_a4d6bf010ebb08c96bf163ecb13a05bca}\label{classAst_a4d6bf010ebb08c96bf163ecb13a05bca}} 
+virtual T\+A\+C\+\_\+\+Op {\bfseries get\+\_\+tac\+\_\+operator\+\_\+for\+\_\+rel\+\_\+operator} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAst_a202c29a1c1dca716a61bc969bb1a9733}\label{classAst_a202c29a1c1dca716a61bc969bb1a9733}} 
+string {\bfseries get\+\_\+new\+\_\+label} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAst_a09e0a05ac8ec17d32f94f645b6a83d84}\label{classAst_a09e0a05ac8ec17d32f94f645b6a83d84}} 
+Data\+\_\+\+Type {\bfseries node\+\_\+data\+\_\+type}
+\item 
+\mbox{\Hypertarget{classAst_abaeced57d7c8ee027f71e62d0eba22e6}\label{classAst_abaeced57d7c8ee027f71e62d0eba22e6}} 
+int {\bfseries lineno}
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAst_ad0766f2d2f39a7575c5e8210dc9aad9f}\label{classAst_ad0766f2d2f39a7575c5e8210dc9aad9f}} 
+static int {\bfseries label\+Counter}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ast.\+hh\item 
+ast.\+cc\item 
+type-\/checking.\+cc\end{DoxyCompactItemize}

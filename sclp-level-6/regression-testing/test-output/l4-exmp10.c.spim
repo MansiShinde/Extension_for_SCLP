@@ -1,0 +1,47 @@
+
+	.text 			# The .text assembler directive indicates
+	.globl main		# The following is the code (as oppose to data)
+main:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 20		# Make space for the locals
+# Prologue ends
+
+	li $v0, 5		# Source:5
+	sw $v0, -8($fp)	# Dest: n_
+	li $v0, 1		# Source:1
+	sw $v0, -4($fp)	# Dest: fact_
+	li $v0, 1		# Source:1
+	sw $v0, -12($fp)	# Dest: c_
+
+Label3:    	
+	lw $v0, -12($fp)		# Source:c_
+	lw $t1, -8($fp)		# Source:n_
+	sle $t0, $v0, $t1	# Result:temp0, Opd1:c_, Opd2:n_
+	xori $v0, $t0, 1
+	bgtz $v0, Label5 
+	lw $v0, -4($fp)		# Source:fact_
+	lw $t1, -12($fp)		# Source:c_
+	mul $t0, $v0, $t1	# Result:temp1, Opd1:fact_, Opd2:c_
+	sw $t0, -4($fp)	# Dest: fact_
+	lw $v0, -12($fp)		# Source:c_
+	li $t1, 1		# Source:1
+	add $t0, $v0, $t1	# Result:temp2, Opd1:c_, Opd2:1
+	sw $t0, -12($fp)	# Dest: c_
+	j Label3
+
+Label5:    	
+	NOP
+
+# Epilogue Begins
+epilogue_main:
+	add $sp, $sp, 20
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+

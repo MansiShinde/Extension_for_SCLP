@@ -1,0 +1,24 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : b_)
+            RHS (Num : 0)
+         Asgn:
+            LHS (Name : s_)
+            RHS (String : "cs302")
+         Asgn:
+            LHS (Name : k_)
+            RHS (String : "316")
+         Write :
+               (Name : s_)
+         Write :
+               (Name : b_)
+         Read :
+               (Name : a_)
+         Asgn:
+            LHS (Name : b_)
+            RHS (Name : a_)
+         Write :
+               (Name : b_)
+**END: Abstract Syntax Tree 

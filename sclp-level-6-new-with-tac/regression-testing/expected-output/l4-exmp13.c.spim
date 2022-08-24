@@ -1,0 +1,63 @@
+
+	.text 			# The .text assembler directive indicates
+	.globl main		# The following is the code (as oppose to data)
+main:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 48		# Make space for the locals
+# Prologue ends
+
+	li.d $f2, 2.30		# Loading float number 2.300000
+	s.d $f2, -40($fp)	# Dest: a_
+	li.d $f2, 3.40		# Loading float number 3.400000
+	s.d $f2, -32($fp)	# Dest: b_
+	li.d $f2, 4.50		# Loading float number 4.500000
+	s.d $f2, -24($fp)	# Dest: c_
+	li.d $f2, 5.60		# Loading float number 5.600000
+	s.d $f2, -16($fp)	# Dest: d_
+	li.d $f2, 6.70		# Loading float number 6.700000
+	s.d $f2, -8($fp)	# Dest: e_
+	l.d $f2, -32($fp)		# Source:b_
+	l.d $f6, -24($fp)		# Source:c_
+	add.d $f4, $f2, $f6	# Result:temp0, Opd1:b_, Opd2:c_
+	l.d $f2, -40($fp)		# Source:a_
+	c.ge.d $f6, $f2, $f4	# Result:temp1, Opd1:a_, Opd2:temp0
+	l.d $f2, -8($fp)		# Source:e_
+	l.d $f8, -16($fp)		# Source:d_
+	mul.d $f4, $f2, $f8	# Result:temp2, Opd1:e_, Opd2:d_
+	l.d $f8, -24($fp)		# Source:c_
+	div.d $f2, $f4, $f8	# Result:temp3, Opd1:temp2, Opd2:c_
+	l.d $f4, -16($fp)		# Source:d_
+	c.gt.d $f8, $f4, $f2	# Result:temp4, Opd1:d_, Opd2:temp3
+	and $f2, $f6, $f8	# Result:temp5, Opd1:temp1, Opd2:temp4
+	xori $f4, $f2, 1
+	bgtz $f4, Label4 
+	l.d $f2, -40($fp)		# Source:a_
+	l.d $f6, -16($fp)		# Source:d_
+	mul.d $f4, $f2, $f6	# Result:temp6, Opd1:a_, Opd2:d_
+	l.d $f6, -8($fp)		# Source:e_
+	div.d $f2, $f4, $f6	# Result:temp7, Opd1:temp6, Opd2:e_
+	s.d $f2, -40($fp)	# Dest: a_
+	j Label5
+
+Label4:    	
+	l.d $f2, -8($fp)		# Source:e_
+	l.d $f6, -16($fp)		# Source:d_
+	add.d $f4, $f2, $f6	# Result:temp9, Opd1:e_, Opd2:d_
+	s.d $f4, -8($fp)	# Dest: e_
+
+Label5:    	
+	NOP
+
+# Epilogue Begins
+epilogue_main:
+	add $sp, $sp, 48
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+

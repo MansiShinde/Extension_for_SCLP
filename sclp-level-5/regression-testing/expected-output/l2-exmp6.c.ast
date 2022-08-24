@@ -1,0 +1,27 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : g_)
+            RHS (Num : 2)
+         Read :
+               (Name : b_)
+         Asgn:
+            LHS (Name : a_)
+            RHS (
+            Arith: UMINUS
+               LHS (Name : b_))
+         Asgn:
+            LHS (Name : g_)
+            RHS (
+            Arith: PLUS
+               LHS (
+            Arith: MULT
+               LHS (Name : a_)
+               RHS (Name : b_))
+               RHS (Num : 4))
+         Write :
+               (Name : a_)
+         Write :
+               (Name : g_)
+**END: Abstract Syntax Tree 

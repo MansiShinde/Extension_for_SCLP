@@ -1,0 +1,21 @@
+Program:
+**PROCEDURE: main, Return Type: INT
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : a_)
+            RHS (Num : 2)
+         Asgn:
+            LHS (Name : D1234_)
+            RHS (Num : 3)
+         IF : 
+         CONDITION (
+            Condition: GT
+               LHS (Name : a_)
+               RHS (Num : 5))
+         THEN (
+         RETURN Num : 10
+)
+         ELSE (
+         RETURN Name : a_
+)
+**END: Abstract Syntax Tree 

@@ -1,0 +1,22 @@
+Program:
+**PROCEDURE: A__f_, Return Type: INT
+	n_  Type:INT
+**BEGIN: Abstract Syntax Tree 
+         Return: Name : n_<int>
+**END: Abstract Syntax Tree 
+**PROCEDURE: A__func_, Return Type: INT
+	n_  Type:INT
+**BEGIN: Abstract Syntax Tree 
+         Return: Name : n_<int>
+**END: Abstract Syntax Tree 
+**PROCEDURE: Compiler__Compiler_, Return Type: VOID
+	v_  Type:INT
+	s_  Type:STRING
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+           LHS (Name : scan_<string>)
+           RHS (Name : s_<string>)
+         Asgn:
+           LHS (Name : var_<int>)
+           RHS (Name : v_<int>)
+**END: Abstract Syntax Tree 

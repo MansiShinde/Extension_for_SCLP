@@ -1,0 +1,26 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 2    	;; Loading integer number 2
+	store:    	c_ <- v0    
+	iLoad.d:    	f2 <- 4.30    	;; Loading float number 4.300000
+	store.d:    	d_ <- f2    
+	load:    	v0 <- c_    
+	uminus:    	v0 <- v0
+	load:    	t0 <- a_    
+	mul:    	t0 <- t0 , v0
+	load:    	t0 <- a_    
+	add:    	v0 <- t0 , t0
+	load:    	t0 <- a_    
+	add:    	v0 <- v0 , t0
+	store:    	a_ <- v0    
+	load.d:    	f2 <- d_    
+	uminus.d:    	f2 <- f2
+	load.d:    	f4 <- b_    
+	uminus.d:    	f4 <- f4
+	load.d:    	f6 <- d_    
+	mul.d:    	f4 <- f4 , f6
+	div.d:    	f4 <- f4 , f2
+	load.d:    	f4 <- b_    
+	add.d:    	f2 <- f4 , f4
+	store.d:    	d_ <- f2    
+**END: RTL Statements

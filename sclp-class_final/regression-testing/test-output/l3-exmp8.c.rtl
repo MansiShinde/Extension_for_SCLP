@@ -1,0 +1,22 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad.d:    	f2 <- 2.30    	;; Loading float number 2.300000
+	store.d:    	a_ <- f2    
+	iLoad.d:    	f2 <- 3.40    	;; Loading float number 3.400000
+	store.d:    	b_ <- f2    
+	load.d:    	f2 <- a_    
+	load.d:    	f6 <- b_    
+	mul.d:    	f4 <- f2 , f6
+	load.d:    	f2 <- a_    
+	sge.d:    	f4 , f2
+	iLoad:    	v0 <- 1    
+	movf:    	t0 <- v0 , 0    
+	load.d:    	f2 <- b_    
+	load.d:    	f4 <- a_    
+	slt.d:    	f2 , f4
+	iLoad:    	t1 <- 1    
+	movt:    	t2 <- t1 , 0    
+	not:    	t3 <- t2
+	or:    	t2 <- t0 , t3
+	store:    	c_ <- t2    
+**END: RTL Statements

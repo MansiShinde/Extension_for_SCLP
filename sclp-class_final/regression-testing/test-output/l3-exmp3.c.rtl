@@ -1,0 +1,72 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 5    	;; Loading integer number 5
+	store:    	a_ <- v0    
+	iLoad:    	v0 <- 3    	;; Loading integer number 3
+	store:    	b_ <- v0    
+	iLoad:    	v0 <- 7    	;; Loading 7 in v0 to indicate syscall to read double value
+	read				;; This is where syscall will be made
+	store.d:    	c_ <- f0    	;; Moving the read value from register f0
+	iLoad:    	v0 <- 7    	;; Loading 7 in v0 to indicate syscall to read double value
+	read				;; This is where syscall will be made
+	store.d:    	d_ <- f0    	;; Moving the read value from register f0
+	load:    	v0 <- a_    
+	load:    	t1 <- b_    
+	sgt:    	t0 <- v0 , t1
+	not:    	v0 <- t0
+	bgtz:    	Label7
+	load.d:    	f2 <- c_    
+	load.d:    	f4 <- d_    
+	sgt.d:    	f2 , f4
+	iLoad:    	v0 <- 1    
+	movf:    	t0 <- v0 , 0    
+	not:    	t1 <- t0
+	bgtz:    	Label5
+	load:    	t0 <- a_    
+	load:    	t2 <- b_    
+	mul:    	t1 <- t0 , t2
+	store:    	stemp0 <- t1    
+	goto:    	Label6
+
+  Label5:    	
+	load:    	t0 <- a_    
+	load:    	t2 <- b_    
+	sub:    	t1 <- t0 , t2
+	store:    	stemp0 <- t1    
+
+  Label6:    	
+	load:    	t0 <- stemp0    
+	store:    	stemp2 <- t0    
+	goto:    	Label11
+
+  Label7:    	
+	load.d:    	f2 <- d_    
+	load.d:    	f4 <- c_    
+	sgt.d:    	f2 , f4
+	iLoad:    	t0 <- 1    
+	movf:    	t1 <- t0 , 0    
+	not:    	t2 <- t1
+	bgtz:    	Label9
+	load:    	t1 <- a_    
+	iLoad:    	t3 <- 3    	;; Loading integer number 3
+	add:    	t2 <- t1 , t3
+	store:    	stemp1 <- t2    
+	goto:    	Label10
+
+  Label9:    	
+	load:    	t1 <- b_    
+	iLoad:    	t3 <- 10    	;; Loading integer number 10
+	mul:    	t2 <- t1 , t3
+	store:    	stemp1 <- t2    
+
+  Label10:    	
+	load:    	t1 <- stemp1    
+	store:    	stemp2 <- t1    
+
+  Label11:    	
+	load:    	t0 <- stemp2    
+	store:    	a_ <- t0    
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- a_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+**END: RTL Statements

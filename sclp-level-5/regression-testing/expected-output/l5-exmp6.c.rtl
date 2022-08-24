@@ -1,0 +1,37 @@
+**PROCEDURE: f2_
+**BEGIN: RTL Statements
+	load.d:    	f2 <- p_    
+	goto:    	Label0
+
+  Label0:    	
+	move:    	f0 <- f2    
+	return		f0
+**END: RTL Statements
+**PROCEDURE: f_
+**BEGIN: RTL Statements
+	load.d:    	f2 <- p_    
+	goto:    	Label1
+
+  Label1:    	
+	move:    	f0 <- f2    
+	return		f0
+**END: RTL Statements
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad.d:    	f2 <- 2.00    	;; Loading float number 2.000000
+	store.d:    	r_ <- f2    
+	iLoad.d:    	f2 <- 2.00    	;; Loading float number 2.000000
+	iLoad.d:    	f4 <- 3.00    	;; Loading float number 3.000000
+	add.d:    	f2 <- f2 , f4
+	load.d:    	f4 <- r_    
+	mul.d:    	f4 <- f4 , f2
+	store.d:    	r_ <- f4    
+	load.d:    	f2 <- r_    
+	iLoad.d:    	f4 <- 2.00    	;; Loading float number 2.000000
+	mul.d:    	f2 <- f2 , f4
+	iLoad:    	v0 <- 3    	;; Loading integer number 3
+	push:    	v0
+	push:    	f2
+	f0 = call f_
+	store.d:    	r_ <- f0    
+**END: RTL Statements

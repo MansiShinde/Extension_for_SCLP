@@ -1,0 +1,58 @@
+
+	.text 			# The .text assembler directive indicates
+	.globl main		# The following is the code (as oppose to data)
+main:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 64		# Make space for the locals
+# Prologue ends
+
+	la $v0, -48($fp)		# Loading the address of base:x_
+	l.d $f2, b_		# Source:b_
+	add $v0, $v0, $f2	# Address of Opd1:x_, offset:b_
+	lw.w $f4, 0($v0)		# Indirect load of the final result
+	mov.d $f6, $f4		# Result:temp0, Register move of Opd1:x_.b_
+	li.d $f4, 3434.23		# Loading float number 3434.232000
+	la $t0, -32($fp)		# Loading the address of base:y_
+	l.d $f4, b_		# Source:b_
+	add $t0, $t0, $f4	# Address of Opd1:y_, offset:b_
+	lw.w $f8, 0($t0)		# Indirect load of the final result
+	mov.d $f10, $f8		# Result:temp1, Register move of Opd1:y_.b_
+	li.d $f8, 12.33		# Loading float number 12.333000
+	la $t1, -16($fp)		# Loading the address of base:z_
+	l.d $f8, b_		# Source:b_
+	add $t1, $t1, $f8	# Address of Opd1:z_, offset:b_
+	lw.w $f12, 0($t1)		# Indirect load of the final result
+	mov.d $f14, $f12		# Result:temp2, Register move of Opd1:z_.b_
+	li.d $f12, 45.23		# Loading float number 45.232000
+	la $t2, -48($fp)		# Loading the address of base:x_
+	l.d $f12, b_		# Source:b_
+	add $t2, $t2, $f12	# Address of Opd1:x_, offset:b_
+	lw.w $f16, 0($t2)		# Indirect load of the final result
+	mov.d $f18, $f16		# Result:temp3, Register move of Opd1:x_.b_
+	la $t3, -32($fp)		# Loading the address of base:y_
+	l.d $f16, b_		# Source:b_
+	add $t3, $t3, $f16	# Address of Opd1:y_, offset:b_
+	lw.w $f20, 0($t3)		# Indirect load of the final result
+	mov.d $f22, $f20		# Result:temp4, Register move of Opd1:y_.b_
+	add.d $f20, $f18, $f22	# Result:temp5, Opd1:temp3, Opd2:temp4
+	la $t4, -16($fp)		# Loading the address of base:z_
+	l.d $f18, b_		# Source:b_
+	add $t4, $t4, $f18	# Address of Opd1:z_, offset:b_
+	lw.w $f22, 0($t4)		# Indirect load of the final result
+	mov.d $f24, $f22		# Result:temp6, Register move of Opd1:z_.b_
+	add.d $f22, $f20, $f24	# Result:temp7, Opd1:temp5, Opd2:temp6
+	s.d $f22, -56($fp)	# Dest: a_
+
+# Epilogue Begins
+epilogue_main:
+	add $sp, $sp, 64
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+

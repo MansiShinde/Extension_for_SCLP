@@ -1,0 +1,45 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 0    	;; Loading integer number 0
+	store:    	max_ <- v0    
+	iLoad:    	v0 <- 5    	;; Loading integer number 5
+	store:    	a_ <- v0    
+	iLoad:    	v0 <- 1    	;; Loading integer number 1
+	store:    	b_ <- v0    
+	load:    	v0 <- a_    
+	load:    	t1 <- max_    
+	sgt:    	t0 <- v0 , t1
+	not:    	v0 <- t0
+	bgtz:    	Label4
+	load:    	v0 <- a_    
+	store:    	max_ <- v0    
+	goto:    	Label8
+
+  Label4:    	
+	load:    	v0 <- b_    
+	load:    	t1 <- max_    
+	sgt:    	t0 <- v0 , t1
+	not:    	v0 <- t0
+	bgtz:    	Label6
+	load:    	v0 <- b_    
+	store:    	max_ <- v0    
+	goto:    	Label8
+
+  Label6:    	
+	load:    	v0 <- c_    
+	load:    	t1 <- max_    
+	sgt:    	t0 <- v0 , t1
+	not:    	v0 <- t0
+	bgtz:    	Label8
+	load:    	v0 <- c_    
+	store:    	max_ <- v0    
+	goto:    	Label8
+
+  Label8:    	
+
+  Label8:    	
+
+  Label8:    	
+	iLoad:    	v0 <- 2    	;; Loading integer number 2
+	store:    	c_ <- v0    
+**END: RTL Statements

@@ -1,0 +1,40 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : global1_)
+            RHS (Num : 5)
+         Read :
+               (Name : local_)
+         Asgn:
+            LHS (Name : global2_)
+            RHS (
+            Arith: PLUS
+               LHS (Name : local_)
+               RHS (Num : 1))
+         Asgn:
+            LHS (Name : local_)
+            RHS (
+            Arith: PLUS
+               LHS (
+            Arith: UMINUS
+               LHS (Name : local_))
+               RHS (
+            Arith: MULT
+               LHS (Name : global2_)
+               RHS (
+            Arith: UMINUS
+               LHS (Name : global1_))))
+         Asgn:
+            LHS (Name : global2_)
+            RHS (
+            Arith: DIV
+               LHS (Name : local_)
+               RHS (Num : 2))
+         Write :
+               (Name : global1_)
+         Write :
+               (Name : global2_)
+         Write :
+               (Name : local_)
+**END: Abstract Syntax Tree 

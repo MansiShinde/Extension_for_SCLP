@@ -1,0 +1,47 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         IF : 
+         CONDITION (
+            Condition: GT
+               LHS (Name : a_)
+               RHS (Num : 20))
+         THEN (
+         Asgn:
+            LHS (Name : b_)
+            RHS (Num : 20))
+         ELSE (
+         Asgn:
+            LHS (Name : c_)
+            RHS (Num : 30))
+         WHILE : 
+         CONDITION (
+            Condition: AND
+               LHS (
+            Condition: GT
+               LHS (Name : b_)
+               RHS (Num : 20))
+               RHS (
+            Condition: LT
+               LHS (Name : c_)
+               RHS (Num : 30)))
+         BODY (
+         Asgn:
+            LHS (Name : b_)
+            RHS (
+            Arith: PLUS
+               LHS (Name : b_)
+               RHS (Num : 1)))
+         DO (
+            
+         Asgn:
+            LHS (Name : c_)
+            RHS (
+            Arith: PLUS
+               LHS (Name : c_)
+               RHS (Num : 2)))
+         WHILE CONDITION (
+            Condition: GT
+               LHS (Name : c_)
+               RHS (Num : 30))
+**END: Abstract Syntax Tree 

@@ -1,0 +1,69 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 2    	;; Loading integer number 2
+	store:    	c_ <- v0    
+	iLoad:    	v0 <- 3    	;; Loading integer number 3
+	store:    	b_ <- v0    
+	load_addr:    	v0 <- _str_0    	;; String = "Hi"
+	store:    	s_ <- v0    
+	iLoad.d:    	f2 <- 3.50    	;; Loading float number 3.500000
+	store.d:    	z_ <- f2    
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	iLoad:    	a0 <- 5    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 3    	;; Loading 3 in v0 to indicate syscall to print double value
+	iLoad.d:    	f12 <- 5.60    	;; Moving the value to be printed into register f12
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 4    	;; Loading 4 in v0 to indicate syscall to print string value
+	load_addr:    	a0 <- _str_0    	;; String = "Hi"
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- x_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 5    	;; Loading 5 in v0 to indicate syscall to read integter value
+	read				;; This is where syscall will be made
+	store:    	b_ <- v0    	;; Moving the read value from register v0
+	load:    	v0 <- x_    
+	load:    	t1 <- b_    
+	slt:    	t0 <- v0 , t1
+	load:    	v0 <- b_    
+	load:    	t2 <- c_    
+	sgt:    	t1 <- v0 , t2
+	load:    	v0 <- c_    
+	load:    	t3 <- b_    
+	seq:    	t2 <- v0 , t3
+	not:    	v0 <- t2
+	and:    	t2 <- t1 , v0
+	or:    	v0 <- t0 , t2
+	not:    	t0 <- v0
+	bgtz:    	Label4
+	load:    	v0 <- c_    
+	uminus:    	t0 <- v0
+	load:    	t1 <- x_    
+	mul:    	v0 <- t0 , t1
+	load:    	t1 <- x_    
+	add:    	t0 <- v0 , t1
+	load:    	t1 <- x_    
+	add:    	v0 <- t0 , t1
+	load:    	t0 <- c_    
+	uminus:    	t1 <- t0
+	load:    	t0 <- b_    
+	add:    	t2 <- t0 , t1
+	load:    	t0 <- c_    
+	div:    	t1 <- t0 , t2
+	sub:    	t0 <- v0 , t1
+	store:    	stemp0 <- t0    
+	goto:    	Label5
+
+  Label4:    	
+	load:    	v0 <- c_    
+	iLoad:    	t1 <- 20    	;; Loading integer number 20
+	mul:    	t0 <- v0 , t1
+	iLoad:    	t1 <- 30    	;; Loading integer number 30
+	sub:    	v0 <- t0 , t1
+	store:    	stemp0 <- v0    
+
+  Label5:    	
+	load:    	v0 <- stemp0    
+	store:    	x_ <- v0    
+**END: RTL Statements

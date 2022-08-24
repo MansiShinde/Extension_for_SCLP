@@ -1,0 +1,49 @@
+
+	.text 			# The .text assembler directive indicates
+	.globl main		# The following is the code (as oppose to data)
+main:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 32		# Make space for the locals
+# Prologue ends
+
+	li.d $f2, 2.10		# Loading float number 2.100000
+	s.d $f2, -16($fp)	# Dest: b_
+	li.d $f2, 8.30		# Loading float number 8.300000
+	s.d $f2, -8($fp)	# Dest: c_
+	l.d $f2, -16($fp)		# Source:b_
+	l.d $f6, -8($fp)		# Source:c_
+	div.d $f4, $f2, $f6	# Result:temp0, Opd1:b_, Opd2:c_
+	l.d $f6, -24($fp)		# Source:a_
+	div.d $f2, $f4, $f6	# Result:temp1, Opd1:temp0, Opd2:a_
+	l.d $f6, -16($fp)		# Source:b_
+	mul.d $f4, $f2, $f6	# Result:temp2, Opd1:temp1, Opd2:b_
+	l.d $f2, -24($fp)		# Source:a_
+	add.d $f6, $f2, $f4	# Result:temp3, Opd1:a_, Opd2:temp2
+	li.d $f2, 0.00		# Loading float number 0.000000
+	c.le.d $f6, $f2	
+	li $v0, 1		# Opd1:temp3, Opd2:0.000000, 1
+	movf $t0, $v0, 0
+	xori $t1, $t0, 1
+	bgtz $t1, Label4 
+	l.d $f2, -24($fp)		# Source:a_
+	li.d $f6, 1.00		# Loading float number 1.000000
+	sub.d $f4, $f2, $f6	# Result:temp5, Opd1:a_, Opd2:1.000000
+	s.d $f4, -24($fp)	# Dest: a_
+	j Label4
+
+Label4:    	
+	NOP
+
+# Epilogue Begins
+epilogue_main:
+	add $sp, $sp, 32
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+

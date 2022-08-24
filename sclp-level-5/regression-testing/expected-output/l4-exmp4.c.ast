@@ -1,0 +1,80 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Read :
+               (Name : n_)
+         IF : 
+         CONDITION (
+            Condition: AND
+               LHS (
+            Condition: GE
+               LHS (Name : n_)
+               RHS (Num : 5))
+               RHS (
+            Condition: LE
+               LHS (Name : n_)
+               RHS (Num : 10)))
+         THEN (
+            
+         WHILE : 
+         CONDITION (
+            Condition: GT
+               LHS (Name : n_)
+               RHS (Num : 0))
+         BODY (
+            
+         Write :
+               (Name : n_)
+            
+         Write :
+               (String : " ")
+            
+         Asgn:
+            LHS (Name : n_)
+            RHS (
+            Arith: MINUS
+               LHS (Name : n_)
+               RHS (Num : 1))))
+         ELSE (
+            
+         IF : 
+         CONDITION (
+            Condition: AND
+               LHS (
+            Condition: LE
+               LHS (Name : n_)
+               RHS (Num : 1024))
+               RHS (
+            Condition: GE
+               LHS (Name : n_)
+               RHS (
+            Arith: UMINUS
+               LHS (Num : 1024))))
+         THEN (
+            
+         DO (
+            
+         Write :
+               (Name : n_)
+            
+         Write :
+               (String : " ")
+            
+         Asgn:
+            LHS (Name : n_)
+            RHS (
+            Arith: DIV
+               LHS (Name : n_)
+               RHS (Num : 2)))
+         WHILE CONDITION (
+            Condition: NE
+               LHS (Name : n_)
+               RHS (Num : 0)))
+         ELSE (
+            
+         Write :
+               (String : "Your number is: ")
+            
+         Write :
+               (Name : n_)))
+**END: Abstract Syntax Tree 

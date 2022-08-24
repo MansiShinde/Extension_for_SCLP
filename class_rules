@@ -1,0 +1,62 @@
+
+
+parser.y
+
+%token CLASS PRIVATE PUBLIC
+
+
+
+     | global_decl_statement class_declaration_stat
+	{
+
+ 	}
+
+     | global_decl_statement func_def_list
+	{
+	
+	}
+
+     | func_def_list
+	{
+	
+	}
+
+     | class_declaration_stat
+		{	printf("\nclass_declaration_stat");
+		}
+;
+
+
+
+
+
+class_declaration_stat: CLASS NAME '{' block '}'';'
+		{ printf("\nCLASS");
+		}
+;
+
+
+
+
+block: access_specifier_type ':' global_decl_statement block
+	| %empty
+;
+
+
+
+access_specifier_type: PUBLIC
+			|PRIVATE
+;
+
+
+| NAME
+		{ 
+		}
+
+
+
+scanner.l
+
+class    {store_token_name("CLASS",yytext,yylineno); return CLASS; }
+public    {store_token_name("PUBLIC",yytext,yylineno); return PUBLIC; }
+private    {store_token_name("PRIVATE",yytext,yylineno); return PRIVATE; }

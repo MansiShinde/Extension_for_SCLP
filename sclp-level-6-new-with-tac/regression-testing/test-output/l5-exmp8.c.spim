@@ -1,0 +1,64 @@
+
+	.data
+_str_0:	.ascii "Hello"
+
+	.text 			# The .text assembler directive indicates
+	.globl f1_		# The following is the code (as oppose to data)
+f1_:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 8		# Make space for the locals
+# Prologue ends
+
+	lw $v0, 12($fp)		# Source:s_
+	j Label3
+
+Label3:    	
+	move $v1, $v0		# Source:temp0
+	j epilogue_f1_
+
+# Epilogue Begins
+epilogue_f1_:
+	add $sp, $sp, 8
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+
+
+	.text 			# The .text assembler directive indicates
+	.globl main		# The following is the code (as oppose to data)
+main:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 16		# Make space for the locals
+# Prologue ends
+
+	la $v0, _str_0		# String = "Hello"
+	sw $v0, -8($fp)	# Dest: s1_
+	lw $v0, -8($fp)		# Source:s1_
+	sw $v0, 0($sp)
+	sub $sp, $sp, 4
+	jal f1_
+	add $sp, $sp, 4
+	sw $v1, -4($fp)	# Dest: s2_
+	li $v0, 4		# Loading 4 in v0 to indicate syscall to print string value
+	lw $a0, -8($fp)		# Source:s1_
+	syscall
+
+# Epilogue Begins
+epilogue_main:
+	add $sp, $sp, 16
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+

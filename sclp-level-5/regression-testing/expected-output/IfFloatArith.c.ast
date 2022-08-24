@@ -1,0 +1,34 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : b_)
+            RHS (Num : 2.10)
+         Asgn:
+            LHS (Name : c_)
+            RHS (Num : 8.30)
+         IF : 
+         CONDITION (
+            Condition: GT
+               LHS (
+            Arith: PLUS
+               LHS (Name : a_)
+               RHS (
+            Arith: MULT
+               LHS (
+            Arith: DIV
+               LHS (
+            Arith: DIV
+               LHS (Name : b_)
+               RHS (Name : c_))
+               RHS (Name : a_))
+               RHS (Name : b_)))
+               RHS (Num : 0.00))
+         THEN (
+         Asgn:
+            LHS (Name : a_)
+            RHS (
+            Arith: MINUS
+               LHS (Name : a_)
+               RHS (Num : 1.00)))
+**END: Abstract Syntax Tree 

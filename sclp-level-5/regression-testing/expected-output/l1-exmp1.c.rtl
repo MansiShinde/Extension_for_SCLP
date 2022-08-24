@@ -1,0 +1,26 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 2    	;; Loading integer number 2
+	store:    	local_ <- v0    
+	iLoad:    	v0 <- 1    	;; Loading integer number 1
+	store:    	global_ <- v0    
+	iLoad:    	v0 <- 5    	;; Loading 5 in v0 to indicate syscall to read integter value
+	read				;; This is where syscall will be made
+	store:    	temp_ <- v0    	;; Moving the read value from register v0
+	load:    	v0 <- local_    
+	store:    	temp_ <- v0    
+	load_addr:    	v0 <- _str_0    	;; String = "Welcome to CS316"
+	store:    	a_ <- v0    
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- local_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- global_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 3    	;; Loading 4 in v0 to indicate syscall to print string value
+	move:    	a0 <- a_    	;; Moving the address of the string to be printed into register a0
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- temp_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+**END: RTL Statements

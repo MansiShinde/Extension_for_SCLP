@@ -1,0 +1,58 @@
+
+	.text 			# The .text assembler directive indicates
+	.globl main		# The following is the code (as oppose to data)
+main:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 40		# Make space for the locals
+# Prologue ends
+
+	li.d $f2, 3.23		# Loading float number 3.230000
+	s.d $f2, -24($fp)	# Dest: a_
+	li.d $f2, 5.68		# Loading float number 5.677000
+	s.d $f2, -16($fp)	# Dest: j_
+	l.d $f2, -16($fp)		# Source:j_
+	neg.d $f4, $f2		# Result:temp0, Opd1:j_
+	l.d $f2, -24($fp)		# Source:a_
+	mul.d $f6, $f2, $f4	# Result:temp1, Opd1:a_, Opd2:temp0
+	l.d $f4, -24($fp)		# Source:a_
+	div.d $f2, $f6, $f4	# Result:temp2, Opd1:temp1, Opd2:a_
+	l.d $f4, -16($fp)		# Source:j_
+	neg.d $f6, $f4		# Result:temp3, Opd1:j_
+	add.d $f4, $f2, $f6	# Result:temp4, Opd1:temp2, Opd2:temp3
+	s.d $f4, -24($fp)	# Dest: a_
+	l.d $f2, -16($fp)		# Source:j_
+	neg.d $f4, $f2		# Result:temp5, Opd1:j_
+	l.d $f2, -24($fp)		# Source:a_
+	c.ge.d $f6, $f2, $f4	# Result:temp6, Opd1:a_, Opd2:temp5
+	xori $f2, $f6, 1
+	bgtz $f2, Label4 
+	l.d $f2, -24($fp)		# Source:a_
+	li.d $f6, 1.00		# Loading float number 1.000000
+	add.d $f4, $f2, $f6	# Result:temp7, Opd1:a_, Opd2:1.000000
+	s.d $f4, -32($fp)	# Dest: stemp0
+	j Label5
+
+Label4:    	
+	l.d $f2, -24($fp)		# Source:a_
+	neg.d $f4, $f2		# Result:temp8, Opd1:a_
+	li.d $f6, 1.00		# Loading float number 1.000000
+	sub.d $f2, $f4, $f6	# Result:temp9, Opd1:temp8, Opd2:1.000000
+	s.d $f2, -32($fp)	# Dest: stemp0
+
+Label5:    	
+	l.d $f2, -32($fp)		# Source:stemp0
+	s.d $f2, -8($fp)	# Dest: s_
+
+# Epilogue Begins
+epilogue_main:
+	add $sp, $sp, 40
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+

@@ -1,0 +1,58 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : year_)
+            RHS (Num : 1990)
+         IF : 
+         CONDITION (
+            Condition: EQ
+               LHS (
+            Arith: MULT
+               LHS (
+            Arith: DIV
+               LHS (Name : year_)
+               RHS (Num : 400))
+               RHS (Num : 400))
+               RHS (Name : year_))
+         THEN (
+         Asgn:
+            LHS (Name : cntr_)
+            RHS (Num : 1))
+         ELSE (
+         IF : 
+         CONDITION (
+            Condition: EQ
+               LHS (
+            Arith: MULT
+               LHS (
+            Arith: DIV
+               LHS (Name : year_)
+               RHS (Num : 100))
+               RHS (Num : 100))
+               RHS (Name : year_))
+         THEN (
+         Asgn:
+            LHS (Name : cntr_)
+            RHS (Num : 0))
+         ELSE (
+         IF : 
+         CONDITION (
+            Condition: EQ
+               LHS (
+            Arith: MULT
+               LHS (
+            Arith: DIV
+               LHS (Name : year_)
+               RHS (Num : 4))
+               RHS (Num : 4))
+               RHS (Name : year_))
+         THEN (
+         Asgn:
+            LHS (Name : cntr_)
+            RHS (Num : 1))
+         ELSE (
+         Asgn:
+            LHS (Name : cntr_)
+            RHS (Num : 0))))
+**END: Abstract Syntax Tree 

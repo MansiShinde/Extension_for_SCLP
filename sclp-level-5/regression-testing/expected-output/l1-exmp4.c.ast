@@ -1,0 +1,36 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : pi_)
+            RHS (Num : 3.14)
+         Asgn:
+            LHS (Name : l_)
+            RHS (Num : 3)
+         Asgn:
+            LHS (Name : u_)
+            RHS (Num : 4)
+         Asgn:
+            LHS (Name : gpi_)
+            RHS (Num : 3.14)
+         Asgn:
+            LHS (Name : m_)
+            RHS (String : "Ceil value")
+         Write :
+               (Name : pi_)
+         Write :
+               (Name : gpi_)
+         Asgn:
+            LHS (Name : pi_)
+            RHS (Name : gpi_)
+         Write :
+               (Name : pi_)
+         Write :
+               (String : "Floor value")
+         Write :
+               (Name : l_)
+         Write :
+               (Name : m_)
+         Write :
+               (Name : u_)
+**END: Abstract Syntax Tree 

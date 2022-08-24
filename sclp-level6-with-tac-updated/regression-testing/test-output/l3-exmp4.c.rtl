@@ -1,0 +1,28 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 4    	;; Loading 4 in v0 to indicate syscall to print string value
+	load_addr:    	a0 <- _str_0    	;; String = "Enter your marks (out of 100). "
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 5    	;; Loading 5 in v0 to indicate syscall to read integter value
+	read				;; This is where syscall will be made
+	store:    	mrks_ <- v0    	;; Moving the read value from register v0
+	load:    	v0 <- mrks_    
+	iLoad:    	t1 <- 40    	;; Loading integer number 40
+	sge:    	t0 <- v0 , t1
+	not:    	v0 <- t0
+	bgtz:    	Label4
+	load_addr:    	v0 <- _str_1    	;; String = "pass"
+	store:    	stemp0 <- v0    
+	goto:    	Label5
+
+  Label4:    	
+	load_addr:    	v0 <- _str_2    	;; String = "fail"
+	store:    	stemp0 <- v0    
+
+  Label5:    	
+	load:    	v0 <- stemp0    
+	store:    	res_ <- v0    
+	iLoad:    	v0 <- 4    	;; Loading 4 in v0 to indicate syscall to print string value
+	load:    	a0 <- res_    
+	write				;; This is where syscall will be made
+**END: RTL Statements

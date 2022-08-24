@@ -1,0 +1,21 @@
+This directory contains the implementation of sclp.
+
+The compiler can be built by giving the command 
+
+	`sh build.sh -lLEVEL -pPHASE' 
+
+where LEVEL is one of the L1, L2, L3, L4, and L5; and PHASE is 
+one of the scan, parse, ast, tac, rtl, and asm. For more details, 
+see the comments in main.cc and versioning.hh.
+
+Multiple compilers can be built by modifying the build-levels.sh script.
+
+Different options of the generated compiler can be found by giving
+the command `./sclp -help'.
+
+The grammar can be extracted by giving the command `sh extract-grammar.sh'.
+
+Regression testing can be done by giving the command `sh check-compiler.sh'.
+
+The banner can be updated by editing `substitute-banner-lines.awk' and then 
+giving the command `sh update-banner.sh'.

@@ -1,0 +1,50 @@
+**PROCEDURE: f_
+**BEGIN: RTL Statements
+	load:    	v0 <- n_    
+	iLoad:    	t1 <- 0    	;; Loading integer number 0
+	seq:    	t0 <- v0 , t1
+	not:    	v0 <- t0
+	bgtz:    	Label4
+	iLoad:    	v0 <- 1    	;; Loading integer number 1
+	store:    	ret_ <- v0    
+	load:    	v0 <- ret_    
+	goto:    	Label5
+	goto:    	Label4
+
+  Label4:    	
+	load:    	v0 <- n_    
+	iLoad:    	t1 <- 1    	;; Loading integer number 1
+	sub:    	t0 <- v0 , t1
+	store:    	k_ <- t0    
+	load:    	v0 <- k_    
+	push:    	v0
+	v1 = call f_
+	store:    	ret_ <- v1    
+	load:    	v0 <- n_    
+	load:    	t1 <- ret_    
+	mul:    	t0 <- v0 , t1
+	store:    	ret_ <- t0    
+	load:    	v0 <- ret_    
+	goto:    	Label5
+
+  Label5:    	
+	move:    	v1 <- v0    
+	return		v1
+**END: RTL Statements
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 5    	;; Loading integer number 5
+	store:    	b_ <- v0    
+	load:    	v0 <- b_    
+	push:    	v0
+	v1 = call f_
+	store:    	a_ <- v1    
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- a_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+	iLoad:    	v0 <- 2    	;; Loading integer number 2
+	store:    	m_ <- v0    
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- m_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+**END: RTL Statements

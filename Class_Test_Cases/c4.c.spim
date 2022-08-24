@@ -1,0 +1,28 @@
+
+	.text 			# The .text assembler directive indicates
+	.globl main		# The following is the code (as oppose to data)
+main:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 44		# Make space for the locals
+# Prologue ends
+
+	la $v0, -32($fp)		# Loading the address of base:x_
+	lw $t0, abc_		# Source:abc_
+	add $v0, $v0, $t0	# Address of Opd1:x_, offset:abc_
+	lw $t1, 0($v0)		# Indirect load of the final result
+	move $t2, $t1		# Result:temp0, Register move of Opd1:x_.abc_
+	sw $t2, -36($fp)	# Dest: a_
+
+# Epilogue Begins
+epilogue_main:
+	add $sp, $sp, 44
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+

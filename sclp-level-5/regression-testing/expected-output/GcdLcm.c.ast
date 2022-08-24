@@ -1,0 +1,52 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : x_)
+            RHS (Num : 14)
+         Asgn:
+            LHS (Name : y_)
+            RHS (Num : 36)
+         Asgn:
+            LHS (Name : a_)
+            RHS (Name : x_)
+         Asgn:
+            LHS (Name : b_)
+            RHS (Name : y_)
+         WHILE : 
+         CONDITION (
+            Condition: NE
+               LHS (Name : b_)
+               RHS (Num : 0))
+         BODY (
+            
+         Asgn:
+            LHS (Name : t_)
+            RHS (Name : b_)
+            
+         Asgn:
+            LHS (Name : b_)
+            RHS (
+            Arith: MULT
+               LHS (
+            Arith: DIV
+               LHS (Name : a_)
+               RHS (Name : b_))
+               RHS (Name : b_))
+            
+         Asgn:
+            LHS (Name : a_)
+            RHS (Name : t_))
+         Asgn:
+            LHS (Name : gcd_)
+            RHS (Name : a_)
+         Asgn:
+            LHS (Name : lcm_)
+            RHS (
+            Arith: DIV
+               LHS (
+            Arith: MULT
+               LHS (Name : x_)
+               RHS (Name : y_))
+               RHS (Name : gcd_))
+**END: Abstract Syntax Tree 

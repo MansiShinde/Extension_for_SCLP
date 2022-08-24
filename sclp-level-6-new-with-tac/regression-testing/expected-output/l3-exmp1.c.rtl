@@ -1,0 +1,36 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad:    	v0 <- 5    	;; Loading 5 in v0 to indicate syscall to read integter value
+	read				;; This is where syscall will be made
+	store:    	num1_ <- v0    	;; Moving the read value from register v0
+	iLoad:    	v0 <- 5    	;; Loading 5 in v0 to indicate syscall to read integter value
+	read				;; This is where syscall will be made
+	store:    	num2_ <- v0    	;; Moving the read value from register v0
+	load:    	v0 <- num1_    
+	load:    	t1 <- num2_    
+	sge:    	t0 <- v0 , t1
+	load:    	v0 <- num1_    
+	load:    	t2 <- num2_    
+	mul:    	t1 <- v0 , t2
+	load:    	v0 <- num1_    
+	load:    	t3 <- num2_    
+	add:    	t2 <- v0 , t3
+	sgt:    	v0 <- t1 , t2
+	or:    	t1 <- t0 , v0
+	not:    	v0 <- t1
+	bgtz:    	Label4
+	load:    	v0 <- num1_    
+	store:    	stemp0 <- v0    
+	goto:    	Label5
+
+  Label4:    	
+	load:    	v0 <- num2_    
+	store:    	stemp0 <- v0    
+
+  Label5:    	
+	load:    	v0 <- stemp0    
+	store:    	greater_ <- v0    
+	iLoad:    	v0 <- 1    	;; Loading 1 in v0 to indicate syscall to print integter value
+	load:    	a0 <- greater_    	;; Moving the value to be printed into register a0
+	write				;; This is where syscall will be made
+**END: RTL Statements

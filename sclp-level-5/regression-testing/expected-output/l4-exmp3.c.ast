@@ -1,0 +1,26 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : a_)
+            RHS (Num : 5)
+         Asgn:
+            LHS (Name : i_)
+            RHS (Num : 0)
+         WHILE : 
+         CONDITION (
+            Condition: LT
+               LHS (Name : i_)
+               RHS (Name : a_))
+         BODY (
+            
+         Asgn:
+            LHS (Name : i_)
+            RHS (
+            Arith: PLUS
+               LHS (Name : i_)
+               RHS (Num : 1))
+            
+         Write :
+               (Name : i_))
+**END: Abstract Syntax Tree 

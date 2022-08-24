@@ -1,0 +1,98 @@
+
+	.text 			# The .text assembler directive indicates
+	.globl f1_		# The following is the code (as oppose to data)
+f1_:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 12		# Make space for the locals
+# Prologue ends
+
+	lw $v0, 12($fp)		# Source:b_
+	lw $t1, 16($fp)		# Source:c_
+	add $t0, $v0, $t1	# Result:temp1, Opd1:b_, Opd2:c_
+	sw $t0, -4($fp)	# Dest: d_
+	lw $v0, -4($fp)		# Source:d_
+	li $t1, 2		# Source:2
+	add $t0, $v0, $t1	# Result:temp2, Opd1:d_, Opd2:2
+	j Label3
+
+Label3:    	
+	move $v1, $t0		# Source:temp0
+	j epilogue_f1_
+
+# Epilogue Begins
+epilogue_f1_:
+	add $sp, $sp, 12
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+
+
+	.text 			# The .text assembler directive indicates
+	.globl g_		# The following is the code (as oppose to data)
+g_:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 12		# Make space for the locals
+# Prologue ends
+
+	lw $v0, -4($fp)		# Source:b_
+	j Label3
+
+Label3:    	
+	move $v1, $v0		# Source:temp3
+	j epilogue_g_
+
+# Epilogue Begins
+epilogue_g_:
+	add $sp, $sp, 12
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+
+
+	.text 			# The .text assembler directive indicates
+	.globl main		# The following is the code (as oppose to data)
+main:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 12		# Make space for the locals
+# Prologue ends
+
+	li $v0, 3		# Source:3
+	sw $v0, -4($fp)	# Dest: a_
+	lw $v0, -4($fp)		# Source:a_
+	sw $v0, 0($sp)
+	sub $sp, $sp, 4
+	lw $t0, -4($fp)		# Source:a_
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	jal f1_
+	add $sp, $sp, 8
+	sw $v1, -4($fp)	# Dest: a_
+	li $v0, 1		# Loading 1 in v0 to indicate syscall to print integter value
+	lw $a0, -4($fp)		# Moving the value to be printed into register a0
+	syscall
+
+# Epilogue Begins
+epilogue_main:
+	add $sp, $sp, 12
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+

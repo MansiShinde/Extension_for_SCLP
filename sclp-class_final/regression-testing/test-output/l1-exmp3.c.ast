@@ -1,0 +1,19 @@
+Program:
+**PROCEDURE: main, Return Type: <void>**BEGIN: Abstract Syntax Tree 
+         Asgn:
+           LHS (Name : b_<int>)
+           RHS (Num : 0<int>)
+         Asgn:
+           LHS (Name : s_<string>)
+           RHS (String : "cs302"<string>)
+         Asgn:
+           LHS (Name : k_<string>)
+           RHS (String : "316"<string>)
+         Write: Name : s_<string>
+         Write: Name : b_<int>
+         Read: Name : a_<int>
+         Asgn:
+           LHS (Name : b_<int>)
+           RHS (Name : a_<int>)
+         Write: Name : b_<int>
+**END: Abstract Syntax Tree 

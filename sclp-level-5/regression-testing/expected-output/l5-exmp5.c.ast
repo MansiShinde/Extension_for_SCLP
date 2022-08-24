@@ -1,0 +1,96 @@
+Program:
+**PROCEDURE: func1_, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : i2_)
+            RHS (Num : 5)
+         Asgn:
+            LHS (Name : f2_)
+            RHS (Num : 5.00)
+**END: Abstract Syntax Tree 
+**PROCEDURE: func2_, Return Type: INT
+	a_  Type:INT
+	b_  Type:FLOAT
+	i1_  Type:INT
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : a_)
+            RHS (
+            Arith: PLUS
+               LHS (Name : a_)
+               RHS (Num : 10))
+         Asgn:
+            LHS (Name : i1_)
+            RHS (Num : 5)
+         RETURN 
+            Arith: PLUS
+               LHS (
+            Arith: PLUS
+               LHS (
+            Arith: PLUS
+               LHS (Name : a_)
+               RHS (Name : i1_))
+               RHS (Name : i2_))
+               RHS (Num : 2)
+
+**END: Abstract Syntax Tree 
+**PROCEDURE: func3_, Return Type: FLOAT
+	a_  Type:INT
+	b_  Type:FLOAT
+	c_  Type:FLOAT
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : b_)
+            RHS (
+            Arith: PLUS
+               LHS (Name : b_)
+               RHS (Name : f2_))
+         Asgn:
+            LHS (Name : c_)
+            RHS (
+            Arith: PLUS
+               LHS (Name : c_)
+               RHS (Num : 10.50))
+         RETURN 
+            Arith: PLUS
+               LHS (Name : b_)
+               RHS (Name : c_)
+
+**END: Abstract Syntax Tree 
+**PROCEDURE: func4_, Return Type: INT
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : i1_)
+            RHS (Num : 4)
+         RETURN 
+            Arith: PLUS
+               LHS (Name : i1_)
+               RHS (Name : i1_)
+
+**END: Abstract Syntax Tree 
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         FN CALL: func1_()
+         Asgn:
+            LHS (Name : i2_)
+            RHS (
+         FN CALL: func4_())
+         Asgn:
+            LHS (Name : i2_)
+            RHS (
+         FN CALL: func2_(
+            Name : i1_
+            Name : f2_
+            Name : i2_))
+         Asgn:
+            LHS (Name : f2_)
+            RHS (
+         FN CALL: func3_(
+            Name : i1_
+            Name : f1_
+            Name : f2_))
+         Write :
+               (Name : f1_)
+         Write :
+               (Name : f2_)
+**END: Abstract Syntax Tree 

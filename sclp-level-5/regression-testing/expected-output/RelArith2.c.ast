@@ -1,0 +1,32 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : a_)
+            RHS (Num : 2.30)
+         Asgn:
+            LHS (Name : b_)
+            RHS (Num : 3.40)
+         Asgn:
+            LHS (Name : d_)
+            RHS (
+         Cond:
+            IF_ELSE
+            Condition: LT
+               LHS (
+            Arith: PLUS
+               LHS (Name : a_)
+               RHS (Name : b_))
+               RHS (
+            Arith: MINUS
+               LHS (Name : a_)
+               RHS (Name : b_))
+            LHS (
+            Arith: MULT
+               LHS (Name : a_)
+               RHS (Name : b_))
+            RHS (
+            Arith: MINUS
+               LHS (Name : a_)
+               RHS (Name : b_)))
+**END: Abstract Syntax Tree 

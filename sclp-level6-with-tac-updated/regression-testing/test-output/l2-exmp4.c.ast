@@ -1,0 +1,36 @@
+Program:
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+           LHS (Name : a_<int>)
+           RHS (Num : 5<int>)
+         Write: Name : a_<int>
+         Asgn:
+           LHS (Name : a_<int>)
+           RHS (
+             Arith: Plus<int>
+               L_Opd (Name : a_<int>)
+               R_Opd (Num : 5<int>))
+         Write: Name : a_<int>
+         Asgn:
+           LHS (Name : a_<int>)
+           RHS (
+             Arith: Minus<int>
+               L_Opd (Name : a_<int>)
+               R_Opd (Num : 5<int>))
+         Write: Name : a_<int>
+         Asgn:
+           LHS (Name : a_<int>)
+           RHS (
+             Arith: Mult<int>
+               L_Opd (Name : a_<int>)
+               R_Opd (Name : a_<int>))
+         Write: Name : a_<int>
+         Asgn:
+           LHS (Name : a_<int>)
+           RHS (
+             Arith: Div<int>
+               L_Opd (Name : a_<int>)
+               R_Opd (Name : a_<int>))
+         Write: Name : a_<int>
+**END: Abstract Syntax Tree 

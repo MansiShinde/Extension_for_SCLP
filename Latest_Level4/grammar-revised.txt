@@ -1,0 +1,231 @@
+
+program 
+	: global_decl_statement 
+	  func_def_list 
+	| func_def_list 
+;
+
+global_decl_statement
+	: global_decl_statement 
+	  func_decl 
+  	| global_decl_statement 
+	  var_decl  
+  	| var_decl  
+	| func_decl 
+;
+
+func_decl 
+	: type NAME '(' dummy_formal_param_list ')' ';'  
+	| type NAME '('')' ';' 
+	| type NAME '(' formal_param_list ')' ';' 
+;
+
+dummy_formal_param_list
+	: dummy_formal_param_list ',' dummy_formal_param 
+	| dummy_formal_param 
+;
+
+dummy_formal_param 
+	: param_type 
+;
+
+func_def_list 
+	: func_def_list func_def 
+	| func_def 
+;
+
+func_def  
+	: type NAME '(' formal_param_list')'  
+	  '{' '}'  
+
+	| type NAME '(' formal_param_list')'  
+	  '{' var_decl_list  
+	  statement_list '}'
+
+	| type NAME '(' ')'  
+	  '{'  '}'  
+		
+	| type NAME '(' ')'  
+	  '{' var_decl_list
+	  statement_list '}'  
+
+	| type NAME '(' formal_param_list')' 
+	  '{' var_decl_list '}'
+
+	| type NAME '(' ')' 
+	  '{' var_decl_list '}'
+;
+
+formal_param_list 
+	: formal_param_list ',' formal_param 
+	| formal_param 
+;
+
+formal_param
+	: param_type NAME 
+;
+
+param_type 
+	: INTEGER 
+	| FLOAT   
+	| BOOL   
+;
+
+statement_list
+	: statement_list statement 
+	| statement
+	{
+	}
+;
+
+statement
+	: assignment_statement  
+	| if_statement  
+ 	| do_while_statement 
+	| while_statement   
+ 	| compound_statement 
+ 	| print_statement 
+ 	| read_statement 
+ 	| call_statement 
+ 	| return_statement 
+; 
+
+call_statement
+	: func_call ';' 
+;
+
+func_call
+	: NAME '(' non_empty_arg_list  ')'
+ 	{
+	}	
+	| NAME '(' ')'
+	{
+	}
+;
+
+
+non_empty_arg_list
+	: non_empty_arg_list ',' actual_arg 
+	| actual_arg    
+;
+
+actual_arg
+	: arith_expression 
+;
+
+return_statement
+	: RETURN ';' 
+
+	| RETURN arith_expression ';'
+;
+
+
+var_decl_list
+	: var_decl 
+	| var_decl_list var_decl 
+;
+
+var_decl
+	: type variables_list ';'
+;
+
+type
+	: INTEGER 
+	| FLOAT   
+	| VOID    
+	| STRING    
+	| BOOL    
+;
+
+variables_list
+	: NAME  
+	| variables_list ',' NAME  
+;
+
+assignment_statement
+	: variable ASSIGN arith_expression ';' 
+	| variable ASSIGN func_call ';' 
+	| variable ASSIGN logical_expression ';'
+;
+
+if_statement
+	: IF '(' logical_expression ')' statement ELSE statement 
+	| IF '(' logical_expression ')' statement  
+;
+
+do_while_statement
+	: DO statement WHILE '(' logical_expression ')' ';' 
+;
+
+while_statement
+	: WHILE '(' logical_expression ')' statement 
+;
+
+compound_statement
+	: '{' statement_list '}' 
+		{ 	
+  		} 
+
+	| '{' '}'
+	{
+	}
+ ; 
+
+print_statement
+	: WRITE variable ';' 
+	| WRITE STRING_CONSTANT ';'
+;
+
+read_statement
+	: READ variable ';' 
+
+;
+
+arith_expression
+	: operand '+' operand  
+	| operand '-' operand  
+	| operand '*' operand  
+	| operand '/' operand    
+	| '-' operand %prec UMINUS  
+	| '(' operand ')' 
+	| logical_expression '?' operand ':' operand
+	| expression_term  
+;
+
+operand
+	: arith_expression  
+;
+
+expression_term
+	: variable  
+	| constant  
+;
+
+rel_expression
+	: operand LT operand 
+	| operand LE operand 
+	| operand GT operand 
+	| operand GE operand 
+	| operand NE operand 
+	| operand EQ operand 
+	
+;
+
+logical_expression
+	: logical_expression AND logical_expression 
+	| logical_expression OR logical_expression 
+	| NOT logical_expression   
+	| '(' logical_expression ')'  
+	| rel_expression
+	|AT variable                
+;
+
+variable
+	: NAME   
+;
+
+constant
+	: INTEGER_NUMBER  
+	| DOUBLE_NUMBER 
+	| STRING_CONSTANT
+;

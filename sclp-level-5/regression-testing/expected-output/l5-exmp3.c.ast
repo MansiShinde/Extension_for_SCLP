@@ -1,0 +1,20 @@
+Program:
+**PROCEDURE: f_, Return Type: FLOAT
+	p_  Type:INT
+	q_  Type:INT
+**BEGIN: Abstract Syntax Tree 
+         RETURN Num : 3.50
+
+**END: Abstract Syntax Tree 
+**PROCEDURE: main, Return Type: VOID
+**BEGIN: Abstract Syntax Tree 
+         Asgn:
+            LHS (Name : r_)
+            RHS (Num : 2.00)
+         Asgn:
+            LHS (Name : r_)
+            RHS (
+         FN CALL: f_(
+            Num : 2
+            Num : 3))
+**END: Abstract Syntax Tree 

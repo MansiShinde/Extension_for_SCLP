@@ -1,0 +1,102 @@
+
+	.data
+y_:	.word 0
+x_:	.word 0
+z_:	.word 0
+
+	.text 			# The .text assembler directive indicates
+	.globl f2_		# The following is the code (as oppose to data)
+f2_:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 8		# Make space for the locals
+# Prologue ends
+
+	l.d $f2, 16($fp)		# Source:p_
+	j Label3
+
+Label3:    	
+	move $f0, $f2		# Source:temp1
+	j epilogue_f2_
+
+# Epilogue Begins
+epilogue_f2_:
+	add $sp, $sp, 8
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+
+
+	.text 			# The .text assembler directive indicates
+	.globl f_		# The following is the code (as oppose to data)
+f_:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 8		# Make space for the locals
+# Prologue ends
+
+	l.d $f2, 16($fp)		# Source:p_
+	j Label3
+
+Label3:    	
+	move $f0, $f2		# Source:temp0
+	j epilogue_f_
+
+# Epilogue Begins
+epilogue_f_:
+	add $sp, $sp, 8
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+
+
+	.text 			# The .text assembler directive indicates
+	.globl main		# The following is the code (as oppose to data)
+main:				# .globl makes main know to the 
+				# outside of the program.
+# Prologue begins 
+	sw $ra, 0($sp)		# Save the return address
+	sw $fp, -4($sp)		# Save the frame pointer
+	sub $fp, $sp, 8		# Update the frame pointer
+
+	sub $sp, $sp, 16		# Make space for the locals
+# Prologue ends
+
+	li.d $f2, 2.00		# Loading float number 2.000000
+	s.d $f2, -8($fp)	# Dest: r_
+	li.d $f2, 2.00		# Loading float number 2.000000
+	li.d $f6, 3.00		# Loading float number 3.000000
+	add.d $f4, $f2, $f6	# Result:temp2, Opd1:2.000000, Opd2:3.000000
+	l.d $f2, -8($fp)		# Source:r_
+	mul.d $f6, $f2, $f4	# Result:temp3, Opd1:r_, Opd2:temp2
+	s.d $f6, -8($fp)	# Dest: r_
+	l.d $f2, -8($fp)		# Source:r_
+	li.d $f6, 2.00		# Loading float number 2.000000
+	mul.d $f4, $f2, $f6	# Result:temp5, Opd1:r_, Opd2:2.000000
+	li $v0, 3		# Source:3
+	sw $v0, 0($sp)
+	sub $sp, $sp, 4
+	s.d $f4, 0($sp)
+	sub $sp, $sp, 8
+	jal f_
+	add $sp, $sp, 12
+	s.d $f0, -8($fp)	# Dest: r_
+
+# Epilogue Begins
+epilogue_main:
+	add $sp, $sp, 16
+	lw $fp, -4($sp)  
+	lw $ra, 0($sp)   
+	jr        $31		# Jump back to the called procedure
+# Epilogue Ends
+

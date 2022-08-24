@@ -1,0 +1,31 @@
+**PROCEDURE: main
+**BEGIN: RTL Statements
+	iLoad.d:    	f2 <- 3.00    	;; Loading float number 3.000000
+	store.d:    	x_ <- f2    
+	iLoad.d:    	f2 <- 9.90    	;; Loading float number 9.900000
+	store.d:    	y_ <- f2    
+	load.d:    	f2 <- x_    
+	load.d:    	f4 <- y_    
+	mul.d:    	f2 <- f2 , f4
+	store.d:    	area_ <- f2    
+	load.d:    	f2 <- x_    
+	load.d:    	f4 <- y_    
+	add.d:    	f2 <- f2 , f4
+	iLoad.d:    	f4 <- 2.00    	;; Loading float number 2.000000
+	mul.d:    	f4 <- f4 , f2
+	store.d:    	perimeter_ <- f4    
+	iLoad.d:    	f2 <- 3.14    	;; Loading float number 3.140000
+	load.d:    	f4 <- x_    
+	mul.d:    	f2 <- f2 , f4
+	load.d:    	f4 <- x_    
+	mul.d:    	f2 <- f2 , f4
+	store.d:    	area_ <- f2    
+	iLoad.d:    	f2 <- 2.00    	;; Loading float number 2.000000
+	iLoad.d:    	f4 <- 22.00    	;; Loading float number 22.000000
+	mul.d:    	f2 <- f2 , f4
+	load.d:    	f4 <- x_    
+	mul.d:    	f2 <- f2 , f4
+	iLoad.d:    	f4 <- 7.00    	;; Loading float number 7.000000
+	div.d:    	f2 <- f2 , f4
+	store.d:    	perimeter_ <- f2    
+**END: RTL Statements
